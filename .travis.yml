@@ -3,7 +3,8 @@ rvm:
   - 2.4.0
 
 before_install:
-  - gem install bundler --without production
+  - gem install bundler
+  - bundle install --without production
   - rake db:create
   - rake db:migrate
 
