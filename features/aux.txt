@@ -1,0 +1,34 @@
+Scenario: Insert a duplicate article
+  GIVEN there is an article with the title “Treinamento em escola do Amapá” registered in the system
+  WHEN I try to register the article with the title “Treinamento em escola do Amapá”
+  THEN the article with the title “Treinamento em escola do Amapá” is not registered twice in the system
+
+
+Scenario: Insert an article without a title
+  GIVEN the system has no article with the title “”
+  WHEN I try to register the article with the title “”
+  THEN the article with the title “” is not registered in the system
+
+
+Scenario: Update articles
+  GIVEN the article with the title “Treinamento em escola do Amapá” is registered in the system
+  WHEN I edit the article with the title “Treinamento em escola do Amapá”
+  THEN the changes on the article “Treinamento em escola do Amapá” are stored on the system
+
+
+Scenario: New article inserted - GUI
+  GIVEN I am at the “articles” page
+  AND The article with title “Treinamento em escola do Amapá” does not appear in the “articles” list
+  WHEN I select the “new article” option
+  AND I enter an article with title “Treinamento em escola do Amapá” with body “Novo treinamento realizado em escola do Amapá foi um sucesso”
+  THEN I see a confirmation message
+  AND I see the article with title “Treinamento em escola do Amapá” under the “articles” page
+
+
+Scenario: Insert a duplicate article - GUI
+  GIVEN I am at the “articles” page
+  AND The article with title “Analfabetismo no Brasil reduz em 30% em um ano” appears in the “articles” list
+  WHEN I select the “new article” option
+  AND I enter an article with title “Analfabetismo no Brasil reduz em 30% em um ano” with body “Nossa missão vem sendo revelada um sucesso”
+  THEN I see a repeated article error message
+  AND I see the “articles” menu

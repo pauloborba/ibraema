@@ -1,0 +1,15 @@
+Using the default profile...
+Feature: Newsletter management
+AS A system administrator
+I WANT TO insert and update articles
+SO THAT I can use the broadcast feature to interact with donors and the public
+
+  Scenario: Insert an article # features/newsletter_management.feature:7
+    GIVEN there is an article with the title “Treinamento em escola do Amapá”
+    AND there is no other articles with the title “Treinamento em escola do Amapá”
+    WHEN I register the article with the title “Treinamento em escola do Amapá”
+    THEN the article with the title “Treinamento em escola do Amapá” is registered in the system
+
+1 scenario (1 passed)
+0 steps
+0m0.247s
