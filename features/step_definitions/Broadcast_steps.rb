@@ -1,6 +1,3 @@
-@emails = []
-@articles = []
-
 #Scenario: Send email about notifications
 Given(/^I have an article "([^"]*)" registered in the system$/) do |title|
   new_article = {article: {title: title}}
@@ -92,14 +89,12 @@ When(/^I fill the field "([^"]*)" with the text "([^"]*)"$/) do |message, messag
 end
 
 Then(/^I can see a successful message$/) do
-  print "Operação feita com sucesso" #temporario
-  #page.find('div', text: "Operação feita com sucesso")
+  print "Email was successfully created." #temporario
 end
 
 Then(/^I can see the message with subject "([^"]*)" in the "([^"]*)" page\.$/) do |subject, page|
   visit '/' + page
-  #element = find("td", Subject: subejct)
-  #expect(element[:class]).eq('green')
+  expect(page).to have_content(subject)
 end
 
 #Scenario: Send message without title (GUI)
@@ -107,9 +102,5 @@ When(/^I fill the field "([^"]*)" in blank "([^"]*)"$/) do |subject, subject_tex
   fill_in(subject, with: subject_text)
 end
 Then(/^I can see an error message\.$/) do
-  print "erro, nao pode mandar mensagem sem subeject"
-end
-
-def compare_emails(emails1, emails2)
-  return emails1.count == emails2.count
+  print "Subject can't be blank" #temporario
 end

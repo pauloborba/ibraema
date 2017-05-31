@@ -1,6 +1,5 @@
 class Email < ApplicationRecord
-    before_save :check_blank_subject
-    after_save :check_mark
+    before_save :check_blank_subject, :check_mark
     validates :subject, presence: true
 
     def check_mark
