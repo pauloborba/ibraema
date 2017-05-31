@@ -3,53 +3,49 @@ As A system administrator
 I WANT TO send message, notifications and updates to system users and the public
 SO THAT I can keep the donors and the public updated with the organization actions and projects
 
-Scenario: Send email about notifications
-Given I have an article "Ampliando limites" registered in the system
-When the article "Ampliando Limites" isn’t marked as sent
-Then an email is sent to the donors with title "Ampliando limites"
-And the article "Ampliando limites" is marked as sent.
+@a
+Scenario: Send email about article
+Given I have an article "Ampliando Limites" registered in the system
+And the article "Ampliando Limites" isn’t marked as sent
+When I try to send an email with the subject "Ampliando Limites" and the message "Novo artigo"
+Then an email is sent to the donors with subject "Ampliando Limites" and the message "Novo artigo"
+And the article "Ampliando Limites" is marked as sent.
 
-Scenario: Send duplicate email about notifications
-Given I have an article "Ampliando limites" registered in the system
-When the article "Ampliando Limites" is marked as sent
+@b
+Scenario: Send duplicate email about article
+Given I have an article "Ampliando Limites" registered in the system
+And the article "Ampliando Limites" is marked as sent
+When I try to send an email with the subject "Ampliando Limites" and the message "Novo artigo"
 Then the system will not send the email.
 
-Scenario: Send message
-Given I wrote a message with title "Obrigado por lutar contra o analfabetismo"
-And there is no other message with the title "Obrigado por lutar contra o analfabetismo"  in the system
-When I try to register the message "Obrigado por lutar contra o analfabetismo"
-Then an email is sent to the donors with title "Obrigado por lutar contra o analfabetismo"
+@c
+Scenario: Send email
+Given I wrote an email with subject "Obrigado por lutar contra o analfabetismo"
+When I try to send the email "Obrigado por lutar contra o analfabetismo"
+Then an email is sent to the donors with subject "Obrigado por lutar contra o analfabetismo"
 And the message "Obrigado por lutar contra o analfabetismo" is registered on the system
-And the message "Obrigado por lutar contra o analfabetismo" is marked as sent.
 
-Scenario: Send duplicate message
-Given I have a message with the title "Obrigado por lutar contra o analfabetismo" registered in the system
-And I wrote a message with the title "Obrigado por lutar contra o analfabetismo"
-When I try to register the message "Obrigado por lutar contra o analfabetismo"
+@d
+Scenario: Send email with subject in blank
+Given I wrote an email with subject ""
+When I try to send the email with the subject ""
 Then the system will not send the email.
 
-
+@e
 Scenario: Send message (GUI)
-Given I am at the "broadcast" page
-When I select "new message"
-And I fill the field "subject" with "Obrigado por lutar contra o analfabetismo"
-And I fill the field "message" with the text "Obrigado"
+Given I am at the "emails" page
+When I select "New Email"
+And I fill the field "Subject" with "Obrigado por lutar contra o analfabetismo"
+And I fill the field "Message" with the text "Obrigado"
+And I select "Create Email"
 Then I can see a successful message
-And I can see the message with title "Obrigado por lutar contra o analfabetismo" at the "messages sent" area in the "broadcast" page.
+And I can see the message with subject "Obrigado por lutar contra o analfabetismo" in the "emails" page.
 
-
-Scenario: Send duplicate message (GUI)
-Given I am at the "broadcast" page
-And there is a message with title "Obrigado por lutar contra o analfabetismo"  at the "messages sent" area
-When I select "new message"
-And I fill the field "title" with "Obrigado por lutar contra o analfabetismo"
-And I fill the field "message" with "Obrigado"
-And I select "send message"
-Then I can see an error message.
-
-Scenario: Send message without title (GUI)
-Given I am at the "broadcast" page
-When I select "new email"
-And I fill the field "title" without title ""
-And I fill the field "message" with the text "Obrigado"
+@f
+Scenario: Send message without subject (GUI)
+Given I am at the "emails" page
+When I select "New Email"
+And I fill the field "Subject" in blank ""
+And I fill the field "Message" with the text "Obrigado"
+And I select "Create Email"
 Then I can see an error message.

@@ -28,6 +28,7 @@ class EmailsController < ApplicationController
 
     respond_to do |format|
       if @email.save
+        EmailMailer.send_new_email(@email).deliver_now
         format.html { redirect_to @email, notice: 'Email was successfully created.' }
         format.json { render :show, status: :created, location: @email }
       else
