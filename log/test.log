@@ -3305,3 +3305,376 @@ Processing by EmailsController#create as HTML
   Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
 Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
   [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-05-31 19:34:21 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-05-31 19:34:22 UTC], ["updated_at", 2017-05-31 19:34:22 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 36ms (ActiveRecord: 1.7ms)
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", false], ["updated_at", 2017-05-31 19:34:22 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", false]]
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 19:34:22 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-05-31 19:35:38 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-05-31 19:35:38 UTC], ["updated_at", 2017-05-31 19:35:38 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 32ms (ActiveRecord: 2.6ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", false], ["updated_at", 2017-05-31 19:35:38 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", false]]
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 19:35:38 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+  [1m[35m (2.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-05-31 19:38:46 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-05-31 19:38:46 UTC], ["updated_at", 2017-05-31 19:38:46 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 45ms (ActiveRecord: 2.6ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", false], ["updated_at", 2017-05-31 19:38:46 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", false]]
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 19:38:46 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-05-31 19:39:21 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-05-31 19:39:21 UTC], ["updated_at", 2017-05-31 19:39:21 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 38ms (ActiveRecord: 2.1ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", false], ["updated_at", 2017-05-31 19:39:21 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", false]]
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 19:39:21 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["subject", "Ampliando Limites"], ["message", "Novo artigo"], ["created_at", 2017-05-31 19:39:21 UTC], ["updated_at", 2017-05-31 19:39:21 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering email_mailer/send_new_email.html.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.html.erb within layouts/mailer (2.6ms)
+  Rendering email_mailer/send_new_email.text.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.text.erb within layouts/mailer (0.5ms)
+EmailMailer#send_new_email: processed outbound mail in 325.6ms
+Sent mail to  (28.9ms)
+Date: Wed, 31 May 2017 19:39:21 +0000
+From: ibraematestes@gmail.com
+Message-ID: <592f1be9d1ee5_c25e61b0e835564@dslins-ibraema-4926299.mail>
+Subject: =?UTF-8?Q?Nova_Not=C3=ADcia:_Ampliando_Limites?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_592f1be9cc6aa_c25e61b0e835481";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_592f1be9cc6aa_c25e61b0e835481
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Ola,
+Novo artigo
+
+Equipe IBRAEMA.
+
+----==_mimepart_592f1be9cc6aa_c25e61b0e835481
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Ol=C3=A1,</h1>
+<p> Novo artigo </p>
+<p> Equipe IBRAEMA</p>
+
+  </body>
+</html>
+
+----==_mimepart_592f1be9cc6aa_c25e61b0e835481--
+
+Completed 500 Internal Server Error in 403ms (ActiveRecord: 1.8ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-05-31 19:39:49 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-05-31 19:39:49 UTC], ["updated_at", 2017-05-31 19:39:49 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 39ms (ActiveRecord: 1.9ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", false], ["updated_at", 2017-05-31 19:39:49 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", false]]
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 19:39:49 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["subject", "Ampliando Limites"], ["message", "Novo artigo"], ["created_at", 2017-05-31 19:39:49 UTC], ["updated_at", 2017-05-31 19:39:49 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering email_mailer/send_new_email.html.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.html.erb within layouts/mailer (3.4ms)
+  Rendering email_mailer/send_new_email.text.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.text.erb within layouts/mailer (0.3ms)
+EmailMailer#send_new_email: processed outbound mail in 218.1ms
+Sent mail to  (12.4ms)
+Date: Wed, 31 May 2017 19:39:50 +0000
+From: ibraematestes@gmail.com
+Message-ID: <592f1c061b9e_c26e12770e424926@dslins-ibraema-4926299.mail>
+Subject: =?UTF-8?Q?Nova_Not=C3=ADcia:_Ampliando_Limites?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_592f1c05f3c81_c26e12770e4248dd";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_592f1c05f3c81_c26e12770e4248dd
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Ola,
+Novo artigo
+
+Equipe IBRAEMA.
+
+----==_mimepart_592f1c05f3c81_c26e12770e4248dd
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Ol=C3=A1,</h1>
+<p> Novo artigo </p>
+<p> Equipe IBRAEMA</p>
+
+  </body>
+</html>
+
+----==_mimepart_592f1c05f3c81_c26e12770e4248dd--
+
+Completed 500 Internal Server Error in 257ms (ActiveRecord: 1.6ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-05-31 19:41:13 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-05-31 19:41:13 UTC], ["updated_at", 2017-05-31 19:41:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 35ms (ActiveRecord: 1.6ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", false], ["updated_at", 2017-05-31 19:41:13 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", false]]
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 19:41:13 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["subject", "Ampliando Limites"], ["message", "Novo artigo"], ["created_at", 2017-05-31 19:41:13 UTC], ["updated_at", 2017-05-31 19:41:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering email_mailer/send_new_email.html.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.html.erb within layouts/mailer (3.2ms)
+  Rendering email_mailer/send_new_email.text.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.text.erb within layouts/mailer (0.5ms)
+EmailMailer#send_new_email: processed outbound mail in 266.2ms
+Completed 500 Internal Server Error in 306ms (ActiveRecord: 1.6ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-05-31 19:41:28 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-05-31 19:41:28 UTC], ["updated_at", 2017-05-31 19:41:28 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 38ms (ActiveRecord: 3.0ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", false], ["updated_at", 2017-05-31 19:41:28 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", false]]
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 19:41:28 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["subject", "Ampliando Limites"], ["message", "Novo artigo"], ["created_at", 2017-05-31 19:41:28 UTC], ["updated_at", 2017-05-31 19:41:28 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 5f5d52ae-af3c-474f-a85f-4ebba3061984) to Async(mailers) with arguments: "EmailMailer", "send_new_email", "deliver_now", #<GlobalID:0x00000002f914e0 @uri=#<URI::GID gid://ibraema/Email/1>>
+Redirected to http://example.org/emails/1
+  [1m[36mEmail Load (0.6ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 302 Found in 91ms (ActiveRecord: 1.2ms)
+  [1m[36mEmail Load (0.2ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."subject" = ? LIMIT ?[0m  [["subject", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", true], ["updated_at", 2017-05-31 19:41:28 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", true]]
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-05-31 19:42:12 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-05-31 19:42:12 UTC], ["updated_at", 2017-05-31 19:42:12 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 34ms (ActiveRecord: 1.8ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ?[0m  [["title", "Ampliando Limites"]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", true], ["updated_at", 2017-05-31 19:42:12 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", true]]
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 19:42:12 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["subject", "Ampliando Limites"], ["message", "Novo artigo"], ["created_at", 2017-05-31 19:42:12 UTC], ["updated_at", 2017-05-31 19:42:12 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEmail Load (0.5ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 3bcc39a8-06d6-4fe0-9392-77e2abeff174) to Async(mailers) with arguments: "EmailMailer", "send_new_email", "deliver_now", #<GlobalID:0x000000062386c8 @uri=#<URI::GID gid://ibraema/Email/1>>
+Redirected to http://example.org/emails/1
+Completed 302 Found in 69ms (ActiveRecord: 1.2ms)
+Started GET "/emails" for 127.0.0.1 at 2017-05-31 19:42:12 +0000
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.2ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 230ms (Views: 226.9ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 19:42:19 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Obrigado por lutar contra o analfabetismo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["subject", "Obrigado por lutar contra o analfabetismo"], ["created_at", 2017-05-31 19:42:20 UTC], ["updated_at", 2017-05-31 19:42:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 1c7bf90c-9244-41e2-8a84-51cb8430b065) to Async(mailers) with arguments: "EmailMailer", "send_new_email", "deliver_now", #<GlobalID:0x00000003ebfea8 @uri=#<URI::GID gid://ibraema/Email/1>>
+  [1m[36mEmail Load (0.5ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://example.org/emails/1
+Completed 302 Found in 94ms (ActiveRecord: 1.6ms)
+  [1m[36mEmail Load (0.4ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."subject" = ? LIMIT ?[0m  [["subject", "Obrigado por lutar contra o analfabetismo"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "emails" SET "mark" = ?, "updated_at" = ? WHERE "emails"."id" = ?[0m  [["mark", true], ["updated_at", 2017-05-31 19:42:20 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "emails" WHERE "emails"."mark" = ?[0m  [["mark", true]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "emails" WHERE "emails"."subject" = ?[0m  [["subject", "Obrigado por lutar contra o analfabetismo"]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 19:42:28 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"", "message"=>"#<Proc:0x000000064aee98@/usr/local/rvm/gems/ruby-2.3.0/gems/minitest-5.10.1/lib/minitest/assertions.rb:513>"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["subject", ""], ["message", "#<Proc:0x000000064aee98@/usr/local/rvm/gems/ruby-2.3.0/gems/minitest-5.10.1/lib/minitest/assertions.rb:513>"], ["created_at", 2017-05-31 19:42:28 UTC], ["updated_at", 2017-05-31 19:42:28 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEmail Load (0.8ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: a30c3117-b57e-4f72-9227-2e1130e37bcf) to Async(mailers) with arguments: "EmailMailer", "send_new_email", "deliver_now", #<GlobalID:0x00000006733c90 @uri=#<URI::GID gid://ibraema/Email/1>>
+Redirected to http://example.org/emails/1
+Completed 302 Found in 81ms (ActiveRecord: 1.3ms)
+Started GET "/emails" for 127.0.0.1 at 2017-05-31 19:42:28 +0000
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.3ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 236ms (Views: 233.7ms | ActiveRecord: 0.3ms)
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
