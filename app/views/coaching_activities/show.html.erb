@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date start:</strong>
+  <%= @coaching_activity.date_start %>
+</p>
+
+<p>
+  <strong>Date finish:</strong>
+  <%= @coaching_activity.date_finish %>
+</p>
+
+<p>
+  <strong>Institution:</strong>
+  <%= @coaching_activity.institution %>
+</p>
+
+<%= link_to 'Edit', edit_coaching_activity_path(@coaching_activity) %> |
+<%= link_to 'Back', coaching_activities_path %>
