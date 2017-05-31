@@ -1,3 +1,4 @@
+require_relative '/home/ubuntu/workspace/lib/time_utils.rb'
 @inst = {}
 Given(/^"([^"]*)" with cnpj "([^"]*)" is registered as a partner$/) do |arg1, arg2|
     inst = {institution: {name: arg1, cnpj: arg2}}
@@ -23,7 +24,9 @@ Given(/^the facilitator with name "([^"]*)" and CPF "([^"]*)" is registered$/) d
 end
 
 When(/^I register a coaching activity starting at day "([^"]*)" and finishing at "([^"]*)" at institution "([^"]*)"$/) do |arg1, arg2, arg3|
-    ca = {coaching_activity: {date_start: TimeUtils.fullDateToTimeStamp(arg1), date_finish: TimeUtils.fullDateToTimeStamp(arg2), institution: @inst.id}}
+    ca = {coaching_activity: {date_start: TimeUtils.toTimestamp(arg1), date_finish: TimeUtils.toTimestamp(arg2), institution_id: @inst.id}}
+    
+    puts ca
     
     post '/coaching_activities', ca
     

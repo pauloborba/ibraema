@@ -14,7 +14,7 @@ module TimeUtils
     end
     
     def self.toTimestamp(date)
-        Time.strptime(date, '%d/%m/%Y').to_i
+        Time.strptime(date, '%d/%m/%Y')
     end
 
 end

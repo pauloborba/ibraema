@@ -56,12 +56,5 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-<<<<<<< HEAD
-#cpf/cnpj validation
-gem "cpf_cnpj"
-#assoc validation
-gem "validators"
-=======
 #Pdf generator
 gem 'prawn'
->>>>>>> 874b52acd496e6f13af90989462087b4ab42e3bd
