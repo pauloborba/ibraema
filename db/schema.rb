@@ -10,6 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170531203440) do
+
+  create_table "donations", force: :cascade do |t|
+    t.decimal  "amount",         precision: 12, scale: 2
+    t.datetime "last_execution",                          default: '2017-05-31 20:36:01'
+    t.integer  "user_id"
+    t.datetime "created_at",                                                              null: false
+    t.datetime "updated_at",                                                              null: false
+    t.index ["user_id"], name: "index_donations_on_user_id", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
