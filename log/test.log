@@ -3305,3 +3305,744 @@ Processing by EmailsController#create as HTML
   Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
 Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
   [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-05-31 16:35:57 -0300
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-05-31 19:35:57 UTC], ["updated_at", 2017-05-31 19:35:57 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 37ms (ActiveRecord: 1.5ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", false], ["updated_at", 2017-05-31 19:35:57 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", false]]
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:35:57 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-05-31 16:35:57 -0300
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-05-31 19:35:57 UTC], ["updated_at", 2017-05-31 19:35:57 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ?[0m  [["title", "Ampliando Limites"]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", true], ["updated_at", 2017-05-31 19:35:57 UTC], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", true]]
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:35:57 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:35:57 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Obrigado por lutar contra o analfabetismo"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:35:58 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"", "message"=>"#<Proc:0x007fd73c456058@/Users/hcaula/.rvm/gems/ruby-2.4.0@global/gems/minitest-5.10.1/lib/minitest/assertions.rb:513>"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/emails" for 127.0.0.1 at 2017-05-31 16:35:58 -0300
+Processing by EmailsController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/emails" for 127.0.0.1 at 2017-05-31 16:35:58 -0300
+Processing by EmailsController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-05-31 16:40:51 -0300
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-05-31 19:40:51 UTC], ["updated_at", 2017-05-31 19:40:51 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 34ms (ActiveRecord: 1.0ms)
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", false], ["updated_at", 2017-05-31 19:40:51 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", false]]
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:40:51 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-05-31 16:40:51 -0300
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-05-31 19:40:51 UTC], ["updated_at", 2017-05-31 19:40:51 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ?[0m  [["title", "Ampliando Limites"]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", true], ["updated_at", 2017-05-31 19:40:51 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", true]]
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:40:51 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:40:51 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Obrigado por lutar contra o analfabetismo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:40:51 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"", "message"=>"#<Proc:0x007fafcba21e58@/Users/hcaula/.rvm/gems/ruby-2.4.0@global/gems/minitest-5.10.1/lib/minitest/assertions.rb:513>"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/emails" for 127.0.0.1 at 2017-05-31 16:40:51 -0300
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.3ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 207ms (Views: 203.9ms | ActiveRecord: 0.3ms)
+Started GET "/emails/new" for 127.0.0.1 at 2017-05-31 16:40:51 -0300
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (30.1ms)
+  Rendered emails/new.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 47ms (Views: 43.8ms | ActiveRecord: 0.0ms)
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:40:52 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>{"subject"=>"Obrigado por lutar contra o analfabetismo", "message"=>"Obrigado", "mark"=>"0"}, "commit"=>"Create Email"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/emails" for 127.0.0.1 at 2017-05-31 16:40:52 -0300
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (1.3ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 1.3ms)
+Started GET "/emails/new" for 127.0.0.1 at 2017-05-31 16:40:52 -0300
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (2.7ms)
+  Rendered emails/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:40:52 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>{"subject"=>"", "message"=>"Obrigado", "mark"=>"0"}, "commit"=>"Create Email"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-05-31 16:42:00 -0300
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-05-31 19:42:00 UTC], ["updated_at", 2017-05-31 19:42:00 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 40ms (ActiveRecord: 2.2ms)
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", false], ["updated_at", 2017-05-31 19:42:00 UTC], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", false]]
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:42:00 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-05-31 16:42:00 -0300
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-05-31 19:42:00 UTC], ["updated_at", 2017-05-31 19:42:00 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ?[0m  [["title", "Ampliando Limites"]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", true], ["updated_at", 2017-05-31 19:42:00 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", true]]
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:42:00 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:42:00 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Obrigado por lutar contra o analfabetismo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:42:00 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"", "message"=>"#<Proc:0x007fbf789c4660@/Users/hcaula/.rvm/gems/ruby-2.4.0@global/gems/minitest-5.10.1/lib/minitest/assertions.rb:513>"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/emails" for 127.0.0.1 at 2017-05-31 16:42:00 -0300
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.3ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 173ms (Views: 169.9ms | ActiveRecord: 0.3ms)
+Started GET "/emails/new" for 127.0.0.1 at 2017-05-31 16:42:00 -0300
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (27.3ms)
+  Rendered emails/new.html.erb within layouts/application (31.3ms)
+Completed 200 OK in 49ms (Views: 38.2ms | ActiveRecord: 0.0ms)
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:42:00 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>{"subject"=>"Obrigado por lutar contra o analfabetismo", "message"=>"Obrigado", "mark"=>"0"}, "commit"=>"Create Email"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/emails" for 127.0.0.1 at 2017-05-31 16:42:00 -0300
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.1ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.1ms)
+Started GET "/emails/new" for 127.0.0.1 at 2017-05-31 16:42:00 -0300
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (3.0ms)
+  Rendered emails/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.0ms)
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:42:00 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>{"subject"=>"", "message"=>"Obrigado", "mark"=>"0"}, "commit"=>"Create Email"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-05-31 16:43:30 -0300
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-05-31 19:43:30 UTC], ["updated_at", 2017-05-31 19:43:30 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 25ms (ActiveRecord: 1.0ms)
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", false], ["updated_at", 2017-05-31 19:43:30 UTC], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", false]]
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:43:30 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["subject", "Ampliando Limites"], ["message", "Novo artigo"], ["created_at", 2017-05-31 19:43:30 UTC], ["updated_at", 2017-05-31 19:43:30 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering email_mailer/send_new_email.html.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.html.erb within layouts/mailer (2.0ms)
+  Rendering email_mailer/send_new_email.text.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.text.erb within layouts/mailer (0.4ms)
+EmailMailer#send_new_email: processed outbound mail in 233.7ms
+Sent mail to  (17.3ms)
+Date: Wed, 31 May 2017 16:43:31 -0300
+From: ibraematestes@gmail.com
+Message-ID: <592f1ce33789f_17433fcf9e82c488979bd@Luizs-Air.mail>
+Subject: =?UTF-8?Q?Nova_Not=C3=ADcia:_Ampliando_Limites?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_592f1ce33466f_17433fcf9e82c4889787a";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_592f1ce33466f_17433fcf9e82c4889787a
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Ola,
+Novo artigo
+
+Equipe IBRAEMA.
+
+----==_mimepart_592f1ce33466f_17433fcf9e82c4889787a
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Ol=C3=A1,</h1>
+<p> Novo artigo </p>
+<p> Equipe IBRAEMA</p>
+
+  </body>
+</html>
+
+----==_mimepart_592f1ce33466f_17433fcf9e82c4889787a--
+
+Completed 500 Internal Server Error in 277ms (ActiveRecord: 1.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-05-31 16:43:31 -0300
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-05-31 19:43:31 UTC], ["updated_at", 2017-05-31 19:43:31 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."title" = ?[0m  [["title", "Ampliando Limites"]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", true], ["updated_at", 2017-05-31 19:43:31 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", true]]
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:43:31 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["subject", "Ampliando Limites"], ["message", "Novo artigo"], ["created_at", 2017-05-31 19:43:31 UTC], ["updated_at", 2017-05-31 19:43:31 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering email_mailer/send_new_email.html.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.html.erb within layouts/mailer (0.5ms)
+  Rendering email_mailer/send_new_email.text.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.text.erb within layouts/mailer (0.4ms)
+EmailMailer#send_new_email: processed outbound mail in 20.7ms
+Sent mail to  (6.5ms)
+Date: Wed, 31 May 2017 16:43:31 -0300
+From: ibraematestes@gmail.com
+Message-ID: <592f1ce34472b_17433fcf9e82c4889815f@Luizs-Air.mail>
+Subject: =?UTF-8?Q?Nova_Not=C3=ADcia:_Ampliando_Limites?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_592f1ce342f8d_17433fcf9e82c48898075";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_592f1ce342f8d_17433fcf9e82c48898075
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Ola,
+Novo artigo
+
+Equipe IBRAEMA.
+
+----==_mimepart_592f1ce342f8d_17433fcf9e82c48898075
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Ol=C3=A1,</h1>
+<p> Novo artigo </p>
+<p> Equipe IBRAEMA</p>
+
+  </body>
+</html>
+
+----==_mimepart_592f1ce342f8d_17433fcf9e82c48898075--
+
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:43:31 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Obrigado por lutar contra o analfabetismo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["subject", "Obrigado por lutar contra o analfabetismo"], ["created_at", 2017-05-31 19:43:31 UTC], ["updated_at", 2017-05-31 19:43:31 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering email_mailer/send_new_email.html.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.html.erb within layouts/mailer (0.4ms)
+  Rendering email_mailer/send_new_email.text.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.text.erb within layouts/mailer (0.2ms)
+EmailMailer#send_new_email: processed outbound mail in 22.1ms
+Sent mail to  (2.0ms)
+Date: Wed, 31 May 2017 16:43:31 -0300
+From: ibraematestes@gmail.com
+Message-ID: <592f1ce34d227_17433fcf9e82c488983a6@Luizs-Air.mail>
+Subject: =?UTF-8?Q?Nova_Not=C3=ADcia:_Obrigado_por_lutar_contra_o_analfa?=
+ =?UTF-8?Q?betismo?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_592f1ce34cb10_17433fcf9e82c48898251";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_592f1ce34cb10_17433fcf9e82c48898251
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Ola,
+
+
+Equipe IBRAEMA.
+
+----==_mimepart_592f1ce34cb10_17433fcf9e82c48898251
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Ol=C3=A1,</h1>
+<p>  </p>
+<p> Equipe IBRAEMA</p>
+
+  </body>
+</html>
+
+----==_mimepart_592f1ce34cb10_17433fcf9e82c48898251--
+
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:43:31 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"", "message"=>"#<Proc:0x007f9f429b0940@/Users/hcaula/.rvm/gems/ruby-2.4.0@global/gems/minitest-5.10.1/lib/minitest/assertions.rb:513>"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["subject", ""], ["message", "#<Proc:0x007f9f429b0940@/Users/hcaula/.rvm/gems/ruby-2.4.0@global/gems/minitest-5.10.1/lib/minitest/assertions.rb:513>"], ["created_at", 2017-05-31 19:43:31 UTC], ["updated_at", 2017-05-31 19:43:31 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering email_mailer/send_new_email.html.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.html.erb within layouts/mailer (0.4ms)
+  Rendering email_mailer/send_new_email.text.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.text.erb within layouts/mailer (0.3ms)
+EmailMailer#send_new_email: processed outbound mail in 23.4ms
+Sent mail to  (1.8ms)
+Date: Wed, 31 May 2017 16:43:31 -0300
+From: ibraematestes@gmail.com
+Message-ID: <592f1ce357630_17433fcf9e82c4889853b@Luizs-Air.mail>
+Subject: =?UTF-8?Q?Nova_Not=C3=ADcia:?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_592f1ce356fee_17433fcf9e82c48898477";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_592f1ce356fee_17433fcf9e82c48898477
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Ola,
+#<Proc:0x007f9f429b0940@/Users/hcaula/.rvm/gems/ruby-2.4.0@global/gems/minitest-5.10.1/lib/minitest/assertions.rb:513>
+
+Equipe IBRAEMA.
+
+----==_mimepart_592f1ce356fee_17433fcf9e82c48898477
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Ol=C3=A1,</h1>
+<p> #&lt;Proc:0x007f9f429b0940@/Users/hcaula/.rvm/gems/ruby-2.4.0@global/=
+gems/minitest-5.10.1/lib/minitest/assertions.rb:513&gt; </p>
+<p> Equipe IBRAEMA</p>
+
+  </body>
+</html>
+
+----==_mimepart_592f1ce356fee_17433fcf9e82c48898477--
+
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/emails" for 127.0.0.1 at 2017-05-31 16:43:31 -0300
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.2ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 115ms (Views: 112.9ms | ActiveRecord: 0.2ms)
+Started GET "/emails/new" for 127.0.0.1 at 2017-05-31 16:43:31 -0300
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (15.3ms)
+  Rendered emails/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 24ms (Views: 21.6ms | ActiveRecord: 0.0ms)
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:43:31 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>{"subject"=>"Obrigado por lutar contra o analfabetismo", "message"=>"Obrigado", "mark"=>"0"}, "commit"=>"Create Email"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "message", "mark", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["subject", "Obrigado por lutar contra o analfabetismo"], ["message", "Obrigado"], ["mark", false], ["created_at", 2017-05-31 19:43:31 UTC], ["updated_at", 2017-05-31 19:43:31 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering email_mailer/send_new_email.html.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.html.erb within layouts/mailer (0.7ms)
+  Rendering email_mailer/send_new_email.text.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.text.erb within layouts/mailer (0.4ms)
+EmailMailer#send_new_email: processed outbound mail in 23.1ms
+Sent mail to  (2.2ms)
+Date: Wed, 31 May 2017 16:43:31 -0300
+From: ibraematestes@gmail.com
+Message-ID: <592f1ce38a570_17433fcf9e82c4889875e@Luizs-Air.mail>
+Subject: =?UTF-8?Q?Nova_Not=C3=ADcia:_Obrigado_por_lutar_contra_o_analfa?=
+ =?UTF-8?Q?betismo?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_592f1ce389e2c_17433fcf9e82c4889862";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_592f1ce389e2c_17433fcf9e82c4889862
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Ola,
+Obrigado
+
+Equipe IBRAEMA.
+
+----==_mimepart_592f1ce389e2c_17433fcf9e82c4889862
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Ol=C3=A1,</h1>
+<p> Obrigado </p>
+<p> Equipe IBRAEMA</p>
+
+  </body>
+</html>
+
+----==_mimepart_592f1ce389e2c_17433fcf9e82c4889862--
+
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.5ms)
+  [1m[35m (8.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/emails" for 127.0.0.1 at 2017-05-31 16:43:31 -0300
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.2ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 0.2ms)
+Started GET "/emails/new" for 127.0.0.1 at 2017-05-31 16:43:31 -0300
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (2.0ms)
+  Rendered emails/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+Started POST "/emails" for 127.0.0.1 at 2017-05-31 16:43:31 -0300
+Processing by EmailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>{"subject"=>"", "message"=>"Obrigado", "mark"=>"0"}, "commit"=>"Create Email"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "message", "mark", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["subject", ""], ["message", "Obrigado"], ["mark", false], ["created_at", 2017-05-31 19:43:31 UTC], ["updated_at", 2017-05-31 19:43:31 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering email_mailer/send_new_email.html.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.html.erb within layouts/mailer (0.5ms)
+  Rendering email_mailer/send_new_email.text.erb within layouts/mailer
+  Rendered email_mailer/send_new_email.text.erb within layouts/mailer (0.5ms)
+EmailMailer#send_new_email: processed outbound mail in 24.1ms
+Sent mail to  (2.1ms)
+Date: Wed, 31 May 2017 16:43:31 -0300
+From: ibraematestes@gmail.com
+Message-ID: <592f1ce39e198_17433fcf9e82c48898913@Luizs-Air.mail>
+Subject: =?UTF-8?Q?Nova_Not=C3=ADcia:?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_592f1ce39d794_17433fcf9e82c488988cc";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_592f1ce39d794_17433fcf9e82c488988cc
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Ola,
+Obrigado
+
+Equipe IBRAEMA.
+
+----==_mimepart_592f1ce39d794_17433fcf9e82c488988cc
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Ol=C3=A1,</h1>
+<p> Obrigado </p>
+<p> Equipe IBRAEMA</p>
+
+  </body>
+</html>
+
+----==_mimepart_592f1ce39d794_17433fcf9e82c488988cc--
+
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m

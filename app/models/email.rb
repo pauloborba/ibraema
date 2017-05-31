@@ -1,12 +1,13 @@
-class Email < ApplicationRec-subjectord
+class Email < ApplicationRecord
     before_save :check_blank_subject
     after_save :check_mark
+    validates :subject, presence: true
 
     def check_mark
         self.mark = true
     end
-    
+
     def check_blank_subject
-        return false if self.subejct.blank? == true
+        return false if self.subject.blank? == true
     end
 end

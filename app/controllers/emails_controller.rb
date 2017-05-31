@@ -33,7 +33,6 @@ class EmailsController < ApplicationController
         format.json { render :show, status: :created, location: @email }
       else
         format.html { render :new }
-        format.json { render json: @email.errors, status: :unprocessable_entity }
       end
     end
   end
