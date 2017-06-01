@@ -11,7 +11,7 @@ And the facilitator with name "ramao" and CPF "543.678.234-00" is registered
 When I register a coaching activity starting at day "20/05/2017" and finishing at "23/05/2017" at institution "escola do Amapá"
 Then the coaching activity is register on the system
 And the coaching activity at "escola do Amapá" has the facilitator with CPF "123.456.789-12"
-And the coaching activity at "escola do "Amapá" has the facilitator with CPF "543.678.234-00"
+And the coaching activity at "escola do Amapá" has the facilitator with CPF "543.678.234-00"
 
 @b
 Scenario: Register a facilitator to an existing coaching

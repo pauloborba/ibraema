@@ -24,26 +24,21 @@ Given(/^the facilitator with name "([^"]*)" and CPF "([^"]*)" is registered$/) d
 end
 
 When(/^I register a coaching activity starting at day "([^"]*)" and finishing at "([^"]*)" at institution "([^"]*)"$/) do |arg1, arg2, arg3|
-    ca = {coaching_activity: {date_start: TimeUtils.toTimestamp(arg1), date_finish: TimeUtils.toTimestamp(arg2), institution_id: @inst.id}}
+    @ca = {coaching_activity: {date_start: TimeUtils.toTimestamp(arg1), date_finish: TimeUtils.toTimestamp(arg2), institution_id: @inst.id}}
     
-    puts ca
+    post '/coaching_activities', @ca
     
-    post '/coaching_activities', ca
+    @ca = CoachingActivity.find_by(institution: @inst.id)
     
-    
-    expect(CoachingActivity.find_by(institution: @inst.id)).not_to be nil
+    expect(@ca).not_to be nil
 end
 
 Then(/^the coaching activity is register on the system$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(CoachingActivity.find_by(id: @ca.id)).not_to be nil
 end
 
 Then(/^the coaching activity at "([^"]*)" has the facilitator with CPF "([^"]*)"$/) do |arg1, arg2|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^the coaching activity at "([^"]*)"Amapá"([^"]*)"(\d+)\.(\d+)\.(\d+)\-(\d+)"$/) do |arg1, arg2, arg3, arg4, arg5, arg6|
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(CoachingActivity.find_by(id: @ca.id))
 end
 
 Given(/^there is a coaching activity at "([^"]*)"$/) do |arg1|
