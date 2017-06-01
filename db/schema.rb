@@ -10,6 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170531220012) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.text     "text"
+    t.boolean  "mark"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "coaching_activities", force: :cascade do |t|
+    t.date     "start_date"
+    t.date     "finish_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.decimal  "amount",         precision: 12, scale: 2
+    t.datetime "last_execution",                          default: '2017-06-01 11:58:38'
+    t.integer  "user_id"
+    t.datetime "created_at",                                                              null: false
+    t.datetime "updated_at",                                                              null: false
+    t.index ["user_id"], name: "index_donations_on_user_id", unique: true
+  end
+
+  create_table "emails", force: :cascade do |t|
+    t.string   "subject"
+    t.text     "message"
+    t.boolean  "mark"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "facilitators", force: :cascade do |t|
+    t.string   "nome"
+    t.string   "cpf"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "institutions", force: :cascade do |t|
+    t.string   "name"
+    t.string   "cnpj"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Email List</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Emails</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @emails.each do |email| %>
+      <tr>
+        <td><%= email.subject %></td>
+        <td><%= link_to 'Show', email %></td>
+        <td><%= link_to 'Destroy', email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Email', new_email_path %>
