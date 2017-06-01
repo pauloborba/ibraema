@@ -69,6 +69,6 @@ class FacilitatorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def facilitator_params
-      params.require(:facilitator).permit(:name, :cpf, :institution_id)
+      params.require(:facilitator).permit(:name, :cpf, :institution_id, :coaching_activity_id)
     end
 end
