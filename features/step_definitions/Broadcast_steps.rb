@@ -94,11 +94,12 @@ When(/^I fill the field "([^"]*)" with the text "([^"]*)"$/) do |message, messag
 end
 
 Then(/^I can see a successful message$/) do
-  print "Email was successfully created." #temporario
+  expect(page).to have_content("Email was successfully created.")
+ 
 end
 
-Then(/^I can see the message with subject "([^"]*)" in the "([^"]*)" page\.$/) do |subject, page|
-  visit '/' + page
+Then(/^I can see the message with subject "([^"]*)" in the "([^"]*)" page\.$/) do |subject, page1|
+  visit '/' + page1
   expect(page).to have_content(subject)
 end
 
@@ -107,5 +108,5 @@ When(/^I fill the field "([^"]*)" in blank "([^"]*)"$/) do |subject, subject_tex
   fill_in(subject, with: subject_text)
 end
 Then(/^I can see an error message\.$/) do
-  print "Subject can't be blank" #temporario
+  expect(page).to have_content("Subject can't be blank")
 end
