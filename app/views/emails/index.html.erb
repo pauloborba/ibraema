@@ -15,7 +15,7 @@
       <tr>
         <td><%= email.subject %></td>
         <td><%= link_to 'Show', email %></td>
-        <td><%= button_to 'Destroy', email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

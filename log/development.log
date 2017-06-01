@@ -36696,3 +36696,43 @@ puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
   Rendering /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
   Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (66.7ms)
+Started GET "/" for 177.40.243.137 at 2017-06-01 14:04:56 +0000
+Cannot render console from 177.40.243.137! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 1014ms (Views: 988.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/emails" for 177.40.243.137 at 2017-06-01 14:05:06 +0000
+Cannot render console from 177.40.243.137! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.5ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 50ms (Views: 45.1ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/emails/3" for 177.40.243.137 at 2017-06-01 14:05:09 +0000
+Cannot render console from 177.40.243.137! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmailsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"G/vgaZ3DzNMct0tJmTXWhvZx8I0uOa4rggGbY+EHN7/nzL8qiUGqfK1SfN3PeYtCeO0fYnefYDvXcNYklNl6vA==", "id"=>"3"}
+  [1m[36mEmail Load (0.5ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "emails" WHERE "emails"."id" = ?[0m  [["id", 3]]
+  [1m[35m (21.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://ibraema-dslins.c9users.io/emails
+Completed 302 Found in 33ms (ActiveRecord: 23.5ms)
+
+
+Started GET "/emails" for 177.40.243.137 at 2017-06-01 14:05:09 +0000
+Cannot render console from 177.40.243.137! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.3ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 84ms (Views: 81.9ms | ActiveRecord: 0.3ms)
+
+
