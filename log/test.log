@@ -5889,3 +5889,271 @@ Processing by EmailsController#create as HTML
   Rendered emails/new.html.erb within layouts/application (3.7ms)
 Completed 200 OK in 11ms (Views: 7.5ms | ActiveRecord: 0.2ms)
   [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "text" text, "mark" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (9.8ms)[0m  [1m[35mCREATE TABLE "coaching_activities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start_date" date, "finish_date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "donations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "amount" decimal(12,2), "last_execution" datetime DEFAULT '2017-06-01 11:58:38', "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_donations_on_user_id" ON "donations" ("user_id")[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "emails" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "subject" varchar, "message" text, "mark" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "facilitators" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "cpf" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE TABLE "institutions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "cnpj" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (7.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170531220012)[0m
+  [1m[35m (13.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170530192637),
+(20170510174837),
+(20170531203440),
+(20170510200239),
+(20170531203258),
+(20170510180605),
+(20170529013808);
+
+[0m
+  [1m[35m (13.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", 2017-06-01 12:34:11 UTC], ["updated_at", 2017-06-01 12:34:11 UTC]]
+  [1m[35m (12.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-06-01 12:34:12 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-06-01 12:34:12 UTC], ["updated_at", 2017-06-01 12:34:12 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 38ms (ActiveRecord: 1.6ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", false], ["updated_at", 2017-06-01 12:34:12 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", false]]
+Started POST "/emails" for 127.0.0.1 at 2017-06-01 12:34:12 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "message", "mark", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["subject", "Ampliando Limites"], ["message", "Novo artigo"], ["mark", true], ["created_at", 2017-06-01 12:34:12 UTC], ["updated_at", 2017-06-01 12:34:12 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEmail Load (0.8ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 9297b6ee-5241-46ae-a83c-3686ecde2056) to Async(mailers) with arguments: "EmailMailer", "send_new_email", "deliver_now", #<GlobalID:0x0000000625c8c0 @uri=#<URI::GID gid://ibraema/Email/1>>
+Redirected to http://example.org/emails/1
+Completed 302 Found in 74ms (ActiveRecord: 1.0ms)
+  [1m[36mEmail Load (0.2ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."subject" = ? LIMIT ?[0m  [["subject", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", true], ["updated_at", 2017-06-01 12:34:12 UTC], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", true]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-06-01 12:34:18 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-06-01 12:34:18 UTC], ["updated_at", 2017-06-01 12:34:18 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 34ms (ActiveRecord: 1.5ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", true], ["updated_at", 2017-06-01 12:34:18 UTC], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", true]]
+Started POST "/emails" for 127.0.0.1 at 2017-06-01 12:34:18 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "message", "mark", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["subject", "Ampliando Limites"], ["message", "Novo artigo"], ["mark", true], ["created_at", 2017-06-01 12:34:18 UTC], ["updated_at", 2017-06-01 12:34:18 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEmail Load (0.4ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: e6e3bbb4-672e-403a-af20-34e08a78904e) to Async(mailers) with arguments: "EmailMailer", "send_new_email", "deliver_now", #<GlobalID:0x00000006a9e948 @uri=#<URI::GID gid://ibraema/Email/1>>
+Redirected to http://example.org/emails/1
+Completed 302 Found in 54ms (ActiveRecord: 0.9ms)
+Started GET "/emails" for 127.0.0.1 at 2017-06-01 12:34:18 +0000
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.2ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 203ms (Views: 201.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/emails" for 127.0.0.1 at 2017-06-01 12:34:25 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Obrigado por lutar contra o analfabetismo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "mark", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["subject", "Obrigado por lutar contra o analfabetismo"], ["mark", true], ["created_at", 2017-06-01 12:34:25 UTC], ["updated_at", 2017-06-01 12:34:25 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEmail Load (0.7ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 8468f909-a5f3-455f-ab2e-ccaf53ef1edb) to Async(mailers) with arguments: "EmailMailer", "send_new_email", "deliver_now", #<GlobalID:0x0000000665eb08 @uri=#<URI::GID gid://ibraema/Email/1>>
+Redirected to http://example.org/emails/1
+Completed 302 Found in 75ms (ActiveRecord: 1.3ms)
+  [1m[36mEmail Load (0.3ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."subject" = ? LIMIT ?[0m  [["subject", "Obrigado por lutar contra o analfabetismo"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "emails" WHERE "emails"."mark" = ?[0m  [["mark", true]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "emails" WHERE "emails"."subject" = ?[0m  [["subject", "Obrigado por lutar contra o analfabetismo"]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/emails" for 127.0.0.1 at 2017-06-01 12:34:31 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"", "message"=>"#<Proc:0x00000006dc75e8@/usr/local/rvm/gems/ruby-2.3.0/gems/minitest-5.10.1/lib/minitest/assertions.rb:513>"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (21.2ms)
+  Rendered emails/new.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 247ms (Views: 215.1ms | ActiveRecord: 1.1ms)
+Started GET "/emails" for 127.0.0.1 at 2017-06-01 12:34:32 +0000
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.2ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/emails" for 127.0.0.1 at 2017-06-01 12:34:38 +0000
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.3ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 216ms (Views: 198.7ms | ActiveRecord: 0.5ms)
+Started GET "/emails/new" for 127.0.0.1 at 2017-06-01 12:34:38 +0000
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (22.6ms)
+  Rendered emails/new.html.erb within layouts/application (24.3ms)
+Completed 200 OK in 37ms (Views: 28.7ms | ActiveRecord: 0.5ms)
+Started POST "/emails" for 127.0.0.1 at 2017-06-01 12:34:38 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>{"subject"=>"Obrigado por lutar contra o analfabetismo", "message"=>"Obrigado"}, "commit"=>"Create Email"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "message", "mark", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["subject", "Obrigado por lutar contra o analfabetismo"], ["message", "Obrigado"], ["mark", true], ["created_at", 2017-06-01 12:34:38 UTC], ["updated_at", 2017-06-01 12:34:38 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: dff87df0-f727-40a5-8219-70757ba24fcc) to Async(mailers) with arguments: "EmailMailer", "send_new_email", "deliver_now", #<GlobalID:0x00000001b66538 @uri=#<URI::GID gid://ibraema/Email/1>>
+Redirected to http://www.example.com/emails/1
+Completed 302 Found in 56ms (ActiveRecord: 0.6ms)
+  [1m[36mEmail Load (0.7ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/emails/1" for 127.0.0.1 at 2017-06-01 12:34:39 +0000
+Processing by EmailsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEmail Load (0.2ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering emails/show.html.erb within layouts/application
+  Rendered emails/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 9ms (Views: 4.7ms | ActiveRecord: 0.2ms)
+Started GET "/emails" for 127.0.0.1 at 2017-06-01 12:34:39 +0000
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.2ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/emails" for 127.0.0.1 at 2017-06-01 12:34:45 +0000
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.2ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 176ms (Views: 162.8ms | ActiveRecord: 0.4ms)
+Started GET "/emails/new" for 127.0.0.1 at 2017-06-01 12:34:46 +0000
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (16.9ms)
+  Rendered emails/new.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 28ms (Views: 21.8ms | ActiveRecord: 0.4ms)
+Started POST "/emails" for 127.0.0.1 at 2017-06-01 12:34:46 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>{"subject"=>"", "message"=>"Obrigado"}, "commit"=>"Create Email"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (3.3ms)
+  Rendered emails/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 14ms (Views: 10.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/articles" for 127.0.0.1 at 2017-06-01 13:23:03 +0000
+Processing by ArticlesController#create as HTML
+  Parameters: {"article"=>{"title"=>"Ampliando Limites"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["title", "Ampliando Limites"], ["created_at", 2017-06-01 13:23:03 UTC], ["updated_at", 2017-06-01 13:23:03 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/articles/1
+Completed 302 Found in 33ms (ActiveRecord: 1.1ms)
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", false], ["updated_at", 2017-06-01 13:23:03 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", false]]
+Started POST "/emails" for 127.0.0.1 at 2017-06-01 13:23:03 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"email"=>{"subject"=>"Ampliando Limites", "message"=>"Novo artigo"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "message", "mark", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["subject", "Ampliando Limites"], ["message", "Novo artigo"], ["mark", true], ["created_at", 2017-06-01 13:23:03 UTC], ["updated_at", 2017-06-01 13:23:03 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 3a716598-b5a5-4972-9968-e81e4d5cd5bd) to Async(mailers) with arguments: "EmailMailer", "send_new_email", "deliver_now", #<GlobalID:0x00000007a0d5a0 @uri=#<URI::GID gid://ibraema/Email/1>>
+Redirected to http://example.org/emails/1
+Completed 302 Found in 71ms (ActiveRecord: 0.8ms)
+  [1m[36mEmail Load (0.2ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."subject" = ? LIMIT ?[0m  [["subject", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."title" = ? LIMIT ?[0m  [["title", "Ampliando Limites"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "articles" SET "mark" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["mark", true], ["updated_at", 2017-06-01 13:23:03 UTC], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEmail Load (0.4ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles" WHERE "articles"."mark" = ?[0m  [["mark", true]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/emails" for 127.0.0.1 at 2017-06-01 13:23:25 +0000
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.3ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 260ms (Views: 237.2ms | ActiveRecord: 0.6ms)
+Started GET "/emails/new" for 127.0.0.1 at 2017-06-01 13:23:25 +0000
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (23.7ms)
+  Rendered emails/new.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 38ms (Views: 29.7ms | ActiveRecord: 0.5ms)
+Started POST "/emails" for 127.0.0.1 at 2017-06-01 13:23:25 +0000
+Processing by EmailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "email"=>{"subject"=>"", "message"=>"Obrigado"}, "commit"=>"Create Email"}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (3.5ms)
+  Rendered emails/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 14ms (Views: 10.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
