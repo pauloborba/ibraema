@@ -1,13 +1,11 @@
 class BroadcastMailer < ApplicationMailer
-
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.broadcast_mailer.broadcast_email.subject
-  #
-  def broadcast_email
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  default from: "ibraematestes@gmail.com"
+  
+  def send_new_email(email)
+    @email = email
+    all_users = User.all
+    user_emails = all_users.collect(&:email).join(",")
+   
+    mail to: user_emails, subject: "Nova Notícia: " + email.subject
   end
 end
