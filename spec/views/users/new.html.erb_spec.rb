@@ -12,7 +12,6 @@ RSpec.describe "users/new", type: :view do
     render
 
     assert_select "form[action=?][method=?]", users_path, "post" do
-
       assert_select "input#user_name[name=?]", "user[name]"
 
       assert_select "input#user_email[name=?]", "user[email]"

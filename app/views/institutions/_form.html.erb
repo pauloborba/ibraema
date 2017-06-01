@@ -1,0 +1,37 @@
+<%= form_for(institution) do |f| %>
+  <% if institution.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(institution.errors.count, "error") %> prohibited this institution from being saved:</h2>
+
+      <ul>
+      <% institution.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= f.label : %>
+    <%= f.text_field : %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cnpj %>
+    <%= f.text_field :cnpj %>
+  </div>
+
+  <div class="field">
+    <%= f.label : %>
+    <%= f.text_field : %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
