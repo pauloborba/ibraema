@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-	validates :nome, presence: true
+  has_one :donation
 end
