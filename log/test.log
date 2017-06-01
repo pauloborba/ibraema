@@ -1,0 +1,553 @@
+  [1m[35m (63.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (63.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBooks (20170601051324)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "books" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "versao" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170601051324"]]
+  [1m[35m (131.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", 2017-06-01 05:21:19 UTC], ["updated_at", 2017-06-01 05:21:19 UTC]]
+  [1m[35m (64.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."nome" = ?[0m  [["nome", "Historia do analfabetismo"]]
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:21:31 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "books" ("nome", "versao", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nome", "Historia do analfabetismo"], ["versao", 1], ["created_at", 2017-06-01 05:21:31 UTC], ["updated_at", 2017-06-01 05:21:31 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/books/1
+Completed 302 Found in 44ms (ActiveRecord: 4.0ms)
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (4.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:21:40 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "books" ("nome", "versao", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nome", "Historia do analfabetismo"], ["versao", 1], ["created_at", 2017-06-01 05:21:40 UTC], ["updated_at", 2017-06-01 05:21:40 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/books/1
+Completed 302 Found in 4ms (ActiveRecord: 2.0ms)
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:21:40 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (19.0ms)
+  Rendered books/new.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 627ms (Views: 621.7ms | ActiveRecord: 0.0ms)
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."nome" = ?[0m  [["nome", "Historia do analfabetismo"]]
+  [1m[35m (3.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."nome" = ?[0m  [["nome", ""]]
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:21:40 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"nome"=>"", "versao"=>"1"}}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", ""], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (2.0ms)
+  Rendered books/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 63ms (Views: 61.2ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."nome" = ?[0m  [["nome", ""]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "books" ("nome", "versao", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nome", "Historia do analfabetismo"], ["versao", 1], ["created_at", 2017-06-01 05:21:41 UTC], ["updated_at", 2017-06-01 05:21:41 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/books/1
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+Started PUT "/books/1" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"2"}, "id"=>"1"}
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? AND ("books"."id" != ?) LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "books" SET "versao" = ?, "updated_at" = ? WHERE "books"."id" = ?[0m  [["versao", 2], ["updated_at", 2017-06-01 05:21:41 UTC], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/books/1
+Completed 302 Found in 6ms (ActiveRecord: 1.0ms)
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (4.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/books" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 47ms (Views: 30.7ms | ActiveRecord: 1.0ms)
+Started GET "/books/new" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#new as HTML
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (15.0ms)
+  Rendered books/new.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 75ms (Views: 59.7ms | ActiveRecord: 0.0ms)
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}, "commit"=>"Create Book"}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "books" ("nome", "versao", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nome", "Historia do analfabetismo"], ["versao", 1], ["created_at", 2017-06-01 05:21:41 UTC], ["updated_at", 2017-06-01 05:21:41 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/books/1
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+Started GET "/books/1" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 46ms (Views: 30.4ms | ActiveRecord: 0.0ms)
+Started GET "/books" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 45ms (Views: 30.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (4.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/books" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 45ms (Views: 30.8ms | ActiveRecord: 0.0ms)
+Started GET "/books/new" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#new as HTML
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (2.0ms)
+  Rendered books/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 60ms (Views: 45.8ms | ActiveRecord: 0.0ms)
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}, "commit"=>"Create Book"}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "books" ("nome", "versao", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nome", "Historia do analfabetismo"], ["versao", 1], ["created_at", 2017-06-01 05:21:41 UTC], ["updated_at", 2017-06-01 05:21:41 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/books/1
+Completed 302 Found in 3ms (ActiveRecord: 1.0ms)
+Started GET "/books/1" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 44ms (Views: 29.3ms | ActiveRecord: 0.0ms)
+Started GET "/books/new" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#new as HTML
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (2.0ms)
+  Rendered books/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 61ms (Views: 46.0ms | ActiveRecord: 0.0ms)
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}, "commit"=>"Create Book"}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (2.0ms)
+  Rendered books/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 68ms (Views: 65.8ms | ActiveRecord: 0.0ms)
+Started GET "/books" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 48ms (Views: 31.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (3.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/books" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 49ms (Views: 34.0ms | ActiveRecord: 0.0ms)
+Started GET "/books/new" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#new as HTML
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (3.0ms)
+  Rendered books/new.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 66ms (Views: 49.9ms | ActiveRecord: 0.0ms)
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "book"=>{"nome"=>"", "versao"=>"1"}, "commit"=>"Create Book"}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", ""], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (3.0ms)
+  Rendered books/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 65ms (Views: 62.6ms | ActiveRecord: 0.0ms)
+Started GET "/books" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 46ms (Views: 30.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/books" for 127.0.0.1 at 2017-06-01 02:21:41 -0300
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 47ms (Views: 30.1ms | ActiveRecord: 1.0ms)
+Started GET "/books/new" for 127.0.0.1 at 2017-06-01 02:21:42 -0300
+Processing by BooksController#new as HTML
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (3.0ms)
+  Rendered books/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 63ms (Views: 47.3ms | ActiveRecord: 0.0ms)
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:21:42 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}, "commit"=>"Create Book"}
+  [1m[35m (1.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "books" ("nome", "versao", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nome", "Historia do analfabetismo"], ["versao", 1], ["created_at", 2017-06-01 05:21:42 UTC], ["updated_at", 2017-06-01 05:21:42 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/books/1
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+Started GET "/books/1" for 127.0.0.1 at 2017-06-01 02:21:42 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 47ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+Started GET "/books/1/edit" for 127.0.0.1 at 2017-06-01 02:21:42 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/_form.html.erb (2.0ms)
+  Rendered books/edit.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 62ms (Views: 47.3ms | ActiveRecord: 0.0ms)
+Started PATCH "/books/1" for 127.0.0.1 at 2017-06-01 02:21:42 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}, "commit"=>"Update Book", "id"=>"1"}
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? AND ("books"."id" != ?) LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/books/1
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+Started GET "/books/1" for 127.0.0.1 at 2017-06-01 02:21:42 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 47ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+Started GET "/books" for 127.0.0.1 at 2017-06-01 02:21:42 -0300
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 48ms (Views: 32.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (4.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."nome" = ?[0m  [["nome", "Historia do analfabetismo"]]
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:23:19 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "books" ("nome", "versao", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nome", "Historia do analfabetismo"], ["versao", 1], ["created_at", 2017-06-01 05:23:19 UTC], ["updated_at", 2017-06-01 05:23:19 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/books/1
+Completed 302 Found in 35ms (ActiveRecord: 1.0ms)
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (4.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:23:28 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "books" ("nome", "versao", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nome", "Historia do analfabetismo"], ["versao", 1], ["created_at", 2017-06-01 05:23:28 UTC], ["updated_at", 2017-06-01 05:23:28 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/books/1
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:23:28 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (18.0ms)
+  Rendered books/new.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 218ms (Views: 213.3ms | ActiveRecord: 1.0ms)
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."nome" = ?[0m  [["nome", "Historia do analfabetismo"]]
+  [1m[35m (4.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."nome" = ?[0m  [["nome", ""]]
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:23:28 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"nome"=>"", "versao"=>"1"}}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", ""], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (2.0ms)
+  Rendered books/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 62ms (Views: 60.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."nome" = ?[0m  [["nome", ""]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:23:28 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "books" ("nome", "versao", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nome", "Historia do analfabetismo"], ["versao", 1], ["created_at", 2017-06-01 05:23:28 UTC], ["updated_at", 2017-06-01 05:23:28 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/books/1
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+Started PUT "/books/1" for 127.0.0.1 at 2017-06-01 02:23:28 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"2"}, "id"=>"1"}
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? AND ("books"."id" != ?) LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "books" SET "versao" = ?, "updated_at" = ? WHERE "books"."id" = ?[0m  [["versao", 2], ["updated_at", 2017-06-01 05:23:28 UTC], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://example.org/books/1
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms)
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (3.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/books" for 127.0.0.1 at 2017-06-01 02:23:28 -0300
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 45ms (Views: 29.2ms | ActiveRecord: 1.0ms)
+Started GET "/books/new" for 127.0.0.1 at 2017-06-01 02:23:28 -0300
+Processing by BooksController#new as HTML
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (2.0ms)
+  Rendered books/new.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 62ms (Views: 46.8ms | ActiveRecord: 0.0ms)
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:23:28 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}, "commit"=>"Create Book"}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "books" ("nome", "versao", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nome", "Historia do analfabetismo"], ["versao", 1], ["created_at", 2017-06-01 05:23:28 UTC], ["updated_at", 2017-06-01 05:23:28 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/books/1
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms)
+Started GET "/books/1" for 127.0.0.1 at 2017-06-01 02:23:28 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 47ms (Views: 29.9ms | ActiveRecord: 0.0ms)
+Started GET "/books" for 127.0.0.1 at 2017-06-01 02:23:28 -0300
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 46ms (Views: 31.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (17.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/books" for 127.0.0.1 at 2017-06-01 02:23:28 -0300
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 45ms (Views: 30.2ms | ActiveRecord: 0.0ms)
+Started GET "/books/new" for 127.0.0.1 at 2017-06-01 02:23:28 -0300
+Processing by BooksController#new as HTML
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (1.0ms)
+  Rendered books/new.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 60ms (Views: 44.7ms | ActiveRecord: 0.0ms)
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:23:28 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}, "commit"=>"Create Book"}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "books" ("nome", "versao", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nome", "Historia do analfabetismo"], ["versao", 1], ["created_at", 2017-06-01 05:23:28 UTC], ["updated_at", 2017-06-01 05:23:28 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/books/1
+Completed 302 Found in 4ms (ActiveRecord: 2.0ms)
+Started GET "/books/1" for 127.0.0.1 at 2017-06-01 02:23:28 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 58ms (Views: 30.0ms | ActiveRecord: 0.0ms)
+Started GET "/books/new" for 127.0.0.1 at 2017-06-01 02:23:28 -0300
+Processing by BooksController#new as HTML
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (2.0ms)
+  Rendered books/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 61ms (Views: 45.5ms | ActiveRecord: 0.0ms)
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:23:28 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}, "commit"=>"Create Book"}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (2.0ms)
+  Rendered books/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 62ms (Views: 60.5ms | ActiveRecord: 0.0ms)
+Started GET "/books" for 127.0.0.1 at 2017-06-01 02:23:29 -0300
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 49ms (Views: 33.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (4.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/books" for 127.0.0.1 at 2017-06-01 02:23:29 -0300
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 47ms (Views: 32.0ms | ActiveRecord: 0.0ms)
+Started GET "/books/new" for 127.0.0.1 at 2017-06-01 02:23:29 -0300
+Processing by BooksController#new as HTML
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (2.0ms)
+  Rendered books/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 61ms (Views: 45.8ms | ActiveRecord: 0.0ms)
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:23:29 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "book"=>{"nome"=>"", "versao"=>"1"}, "commit"=>"Create Book"}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", ""], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (2.0ms)
+  Rendered books/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 63ms (Views: 61.2ms | ActiveRecord: 0.0ms)
+Started GET "/books" for 127.0.0.1 at 2017-06-01 02:23:29 -0300
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 45ms (Views: 30.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/books" for 127.0.0.1 at 2017-06-01 02:23:29 -0300
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 46ms (Views: 30.8ms | ActiveRecord: 0.0ms)
+Started GET "/books/new" for 127.0.0.1 at 2017-06-01 02:23:29 -0300
+Processing by BooksController#new as HTML
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (3.0ms)
+  Rendered books/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 62ms (Views: 47.3ms | ActiveRecord: 0.0ms)
+Started POST "/books" for 127.0.0.1 at 2017-06-01 02:23:29 -0300
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}, "commit"=>"Create Book"}
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "books" ("nome", "versao", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nome", "Historia do analfabetismo"], ["versao", 1], ["created_at", 2017-06-01 05:23:29 UTC], ["updated_at", 2017-06-01 05:23:29 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/books/1
+Completed 302 Found in 5ms (ActiveRecord: 2.0ms)
+Started GET "/books/1" for 127.0.0.1 at 2017-06-01 02:23:29 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 46ms (Views: 30.5ms | ActiveRecord: 0.0ms)
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."nome" = ? LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["LIMIT", 1]]
+Started GET "/books/1/edit" for 127.0.0.1 at 2017-06-01 02:23:29 -0300
+Processing by BooksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/edit.html.erb within layouts/application
+  Rendered books/_form.html.erb (2.0ms)
+  Rendered books/edit.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 67ms (Views: 47.7ms | ActiveRecord: 0.0ms)
+Started PATCH "/books/1" for 127.0.0.1 at 2017-06-01 02:23:29 -0300
+Processing by BooksController#update as HTML
+  Parameters: {"utf8"=>"✓", "book"=>{"nome"=>"Historia do analfabetismo", "versao"=>"1"}, "commit"=>"Update Book", "id"=>"1"}
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mBook Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "books" WHERE "books"."nome" = ? AND ("books"."id" != ?) LIMIT ?[0m  [["nome", "Historia do analfabetismo"], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/books/1
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+Started GET "/books/1" for 127.0.0.1 at 2017-06-01 02:23:29 -0300
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 48ms (Views: 29.7ms | ActiveRecord: 0.0ms)
+Started GET "/books" for 127.0.0.1 at 2017-06-01 02:23:29 -0300
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.0ms)[0m  [1m[34mSELECT "books".* FROM "books"[0m
+  Rendered books/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 48ms (Views: 32.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (3.0ms)[0m  [1m[31mrollback transaction[0m

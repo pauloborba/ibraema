@@ -1,6 +1,6 @@
 Feature: Media system
 As A registered facilitator
-I want to access video lessons and books from the coaching
+I want to books from the coaching
 So that I can review and study concepts taught by the organization
 
 Scenario: Add a Book
