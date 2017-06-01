@@ -1,0 +1,2 @@
+module CoachingActivitiesHelper
+end

@@ -1,0 +1,32 @@
+<%= form_for(coaching_activity) do |f| %>
+  <% if coaching_activity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(coaching_activity.errors.count, "error") %> prohibited this coaching_activity from being saved:</h2>
+
+      <ul>
+      <% coaching_activity.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date_start %>
+    <%= f.datetime_select :date_start %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_finish %>
+    <%= f.datetime_select :date_finish %>
+  </div>
+
+  <div class="field">
+    <%= f.label :institution_id %>
+    <%= f.text_field :institution_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @facilitator.name %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @facilitator.cpf %>
+</p>
+
+<p>
+  <strong>Institution:</strong>
+  <%= @facilitator.institution %>
+</p>
+
+<%= link_to 'Edit', edit_facilitator_path(@facilitator) %> |
+<%= link_to 'Back', facilitators_path %>
