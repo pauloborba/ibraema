@@ -44,3 +44,26 @@ Then(/^the coaching activity at "([^"]*)" has the facilitator with CPF "([^"]*)"
   fac = ca.facilitators.find_by(cpf: arg2)
   expect(fac).not_to be nil 
 end
+
+Given(/^the coaching activity at "([^"]*)" starting at "([^"]*)" and finishing at "([^"]*)" is registered on the system$/) do |arg1, arg2, arg3|
+  @ca = {coaching_activity: {date_start: TimeUtils.toTimestamp(arg2), date_finish: TimeUtils.toTimestamp(arg3), institution_id: @inst.id}}
+  post '/coaching_activities', @ca
+  
+  @ca = CoachingActivity.find_by(institution: @inst.id)
+    
+  expect(@ca).not_to be nil
+end
+
+Given(/^the facilitator with name "([^"]*)" and cpf "([^"]*)" is not registered on coaching activity at "([^"]*)"$/) do |arg1, arg2, arg3|
+  expect(Facilitator.find_by(coaching_activity_id: @ca.id)).to be nil
+end
+
+When(/^I register the facilitator with name "([^"]*)" and cpf "([^"]*)" at coaching activity at "([^"]*)"$/) do |arg1, arg2, arg3|
+  @fac = {facilitator: {name: arg1, cpf: arg2, institution: @inst.id, coaching_activity_id: @ca.id}}
+  
+  post '/facilitators', @fac
+end
+
+Then(/^the facilitator is registered on the coaching activity at "([^"]*)"\.$/) do |arg1|
+  expect(Facilitator.find_by(coaching_activity_id: @ca.id))
+end
