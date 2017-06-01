@@ -1,20 +1,24 @@
+@email = {}
+@article = {}
+
+#CONTROLLER SCENARIOS
 #Scenario: Send email about notifications
 Given(/^I have an article "([^"]*)" registered in the system$/) do |title|
-  new_article = {article: {title: title}}
-  post '/articles', new_article
+  @article = {article: {title: title}}
+  post '/articles', @article
   expect(Article.find_by(title: title)).not_to be_nil
 end
 
 Given(/^the article "([^"]*)" isn’t marked as sent$/) do |title|
-  article_new = Article.find_by(title: title)
-  article_new.mark = false
-  article_new.save
+  @article = Article.find_by(title: title)
+  @article.mark = false
+  @article.save
   expect(Article.where(mark: false)).not_to be_empty
 end
 
 When(/^I try to send an email with the subject "([^"]*)" and the message "([^"]*)"$/) do |subject, message|
-  new_email = {email: {subject: subject, message: message}}
-  post '/emails', new_email
+  @email = {email: {subject: subject, message: message}}
+  post '/emails', @email
 end
 
 Then(/^an email is sent to the donors with subject "([^"]*)" and the message "([^"]*)"$/) do |subject, message|
@@ -22,17 +26,17 @@ Then(/^an email is sent to the donors with subject "([^"]*)" and the message "([
 end
 
 Then(/^the article "([^"]*)" is marked as sent\.$/) do |title|
-  article_new = Article.find_by(title: title)
-  article_new.mark = true
-  article_new.save
+  @email = Article.find_by(title: title)
+  @email.mark = true
+  @email.save
   expect(Article.where(mark: true)).not_to be_empty
 end
 
 #Scenario: Send duplicate email about notifications
 Given(/^the article "([^"]*)" is marked as sent$/) do |title|
-  article_new = Article.where(title: title)
-  article_new[0].mark = true
-  article_new[0].save
+  @article = Article.find_by(title: title)
+  @article.mark = true
+  @article.save
   expect(Article.where(mark: true)).not_to be_empty
 end
 
@@ -43,20 +47,20 @@ end
 
 #Scenario: Send message
 Given(/^I wrote an email with subject "([^"]*)"$/) do |subject|
-    new_email = subject
-    expect(new_email).not_to be_nil
+    @email = subject
+    expect(@email).not_to be_nil
 end
 
 When(/^I try to send the email "([^"]*)"$/) do |subject|
-  new_email = {email: {subject: subject}}
-  post '/emails', new_email
+  @email = {email: {subject: subject}}
+  post '/emails', @email
 end
 
 Then(/^an email is sent to the donors with subject "([^"]*)"$/) do |subject|
   #quando o email for criado, logo apos enviar o email, mark = true
-  new_email = Email.find_by(subject: subject)
-  new_email.mark = true
-  new_email.save
+  @email = Email.find_by(subject: subject)
+  @email.mark = true
+  @email.save
   expect(Email.where(mark: true)).not_to be_empty
 end
 
@@ -66,11 +70,12 @@ end
 
 #Scenario: Send email with subject in blank
 When(/^I try to send the email with the subject "([^"]*)"$/) do |subject|
-  new_email = {email: {subject: subject, message: message}}
-  post '/emails', new_email
-  
+  @email = {email: {subject: subject, message: message}}
+  post '/emails', @email
 end
 
+
+#GUI SCENARIOS
 #Scenario: Send message (GUI)
 Given(/^I am at the "([^"]*)" page$/) do |page|
    visit '/' + page
