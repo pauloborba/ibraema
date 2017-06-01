@@ -36755,3 +36755,345 @@ Processing by EmailsController#index as HTML
 Completed 200 OK in 36ms (Views: 32.6ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/" for 150.161.2.202 at 2017-06-01 16:44:50 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 401ms (Views: 375.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 150.161.2.202 at 2017-06-01 16:59:10 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 497ms (Views: 468.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/emails/new" for 150.161.2.202 at 2017-06-01 16:59:21 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (42.7ms)
+  Rendered emails/new.html.erb within layouts/application (44.7ms)
+Completed 200 OK in 111ms (Views: 96.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/emails/new" for 150.161.2.202 at 2017-06-01 17:00:19 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (34.9ms)
+  Rendered emails/new.html.erb within layouts/application (39.6ms)
+Completed 200 OK in 664ms (Views: 633.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/emails/new" for 150.161.2.202 at 2017-06-01 17:00:49 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (2.6ms)
+  Rendered emails/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 43ms (Views: 41.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/emails/new" for 150.161.2.202 at 2017-06-01 17:01:47 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (1.0ms)
+  Rendered emails/new.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/ubuntu/workspace/app/views/emails/_form.html.erb:23: syntax error, unexpected '<'
+  </div>
+   ^
+/home/ubuntu/workspace/app/views/emails/_form.html.erb:27: unknown regexp options - dv
+unmatched close parenthesis: /div>
+
+  <div class="actions">
+    <%= f.submit );@output_buffer.safe_append='
+  </i
+/home/ubuntu/workspace/app/views/emails/_form.html.erb:28: unterminated string meets end of file
+/home/ubuntu/workspace/app/views/emails/_form.html.erb:28: syntax error, unexpected end-of-input, expecting ')'):
+  
+app/views/emails/_form.html.erb:23: syntax error, unexpected '<'
+app/views/emails/_form.html.erb:27: unknown regexp options - dv
+app/views/emails/_form.html.erb:28: unterminated string meets end of file
+app/views/emails/_form.html.erb:28: syntax error, unexpected end-of-input, expecting ')'
+app/views/emails/new.html.erb:3:in `_app_views_emails_new_html_erb__3985336642251382320_70127655655320'
+Started GET "/emails/new" for 150.161.2.202 at 2017-06-01 17:02:14 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (2.2ms)
+  Rendered emails/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 65ms (Views: 63.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/emails/new" for 150.161.2.202 at 2017-06-01 17:04:19 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (20.0ms)
+  Rendered emails/new.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 353ms (Views: 347.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/emails/new" for 150.161.2.202 at 2017-06-01 17:05:46 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (227.2ms)
+  Rendered emails/new.html.erb within layouts/application (230.7ms)
+Completed 200 OK in 458ms (Views: 455.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/emails/new" for 150.161.2.202 at 2017-06-01 17:06:00 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (6.5ms)
+  Rendered emails/new.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 217ms (Views: 213.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 150.161.2.202 at 2017-06-01 17:08:28 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 440ms (Views: 418.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/new" for 150.161.2.202 at 2017-06-01 17:08:33 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (25.6ms)
+  Rendered users/new.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 215ms (Views: 213.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 150.161.2.202 at 2017-06-01 17:08:44 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JYDyZiqgdJDwUng6eKhB5DFIWb80TKUVhFa1IzoUqPSXgao/s0VHBc+opojlRxbj/LvQvnXfFErYUYrXaiHFIA==", "user"=>{"name"=>"Ramon", "email"=>"dslins@outlook.com.br"}, "commit"=>"Create User"}
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ramon"], ["email", "dslins@outlook.com.br"], ["created_at", 2017-06-01 17:08:44 UTC], ["updated_at", 2017-06-01 17:08:44 UTC]]
+  [1m[35m (82.7ms)[0m  [1m[36mcommit transaction[0m
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.8ms)
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (1.2ms)
+UserMailer#welcome_email: processed outbound mail in 342.9ms
+Sent mail to dslins@outlook.com.br (1003.2ms)
+Date: Thu, 01 Jun 2017 17:08:45 +0000
+From: ibraematestes@gmail.com
+To: dslins@outlook.com.br
+Message-ID: <59304a1dae14a_460c182ae3c3003d@dslins-ibraema-4932052.mail>
+Subject: Obrigado por nos ajudar a lutar contra o analfabetismo
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_59304a1dab229_460c182ae3c29975";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_59304a1dab229_460c182ae3c29975
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Ol=C3=A1 Ramon,
+Obrigado por se juntar ao time a luta contra o analfabetismo.
+
+A partir de agora, voc=C3=AA ficar=C3=A1 recebendo not=C3=ADcias sobre as=
+ atividades que estamos realizando para erradicar o analfabetismo.
+
+Obrigado.
+Equipe IBRAEMA.
+
+----==_mimepart_59304a1dab229_460c182ae3c29975
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Ol=C3=A1, Ramon</h1>
+    <p> Obrigado por se juntar ao time a luta contra o analfabetismo.</p>=
+
+    <p> A partir de agora, voc=C3=AA ficar=C3=A1 recebendo not=C3=ADcias =
+sobre as atividades que estamos realizando para erradicar o analfabetismo=
+.</p>
+    <p> Obrigado, </p>
+    <p> Equipe IBRAEMA. </p>
+
+  </body>
+</html>
+
+----==_mimepart_59304a1dab229_460c182ae3c29975--
+
+Redirected to https://ibraema-dslins.c9users.io/users/2
+Completed 302 Found in 2306ms (ActiveRecord: 85.0ms)
+
+
+Started GET "/users/2" for 150.161.2.202 at 2017-06-01 17:08:47 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 68ms (Views: 49.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/emails" for 150.161.2.202 at 2017-06-01 17:09:04 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.3ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 87ms (Views: 73.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/emails/new" for 150.161.2.202 at 2017-06-01 17:09:07 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (6.3ms)
+  Rendered emails/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 231ms (Views: 221.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/emails" for 150.161.2.202 at 2017-06-01 17:09:20 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ohbaNubtpDtkeexs7smqnUqPO0uz9CeZXA/iV0/xRqg90YXhq8uYQnA8Ym99i52XK1yimVt7xzD0YLHqljeHlQ==", "email"=>{"subject"=>"Mensagem", "message"=>"ola tudo bem"}, "commit"=>"Create Email"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "emails" ("subject", "message", "mark", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["subject", "Mensagem"], ["message", "ola tudo bem"], ["mark", true], ["created_at", 2017-06-01 17:09:20 UTC], ["updated_at", 2017-06-01 17:09:20 UTC]]
+  [1m[35m (10.6ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] Enqueued ActionMailer::DeliveryJob (Job ID: 7ca037f4-919d-4f1d-8c15-51c707147f57) to Async(mailers) with arguments: "EmailMailer", "send_new_email", "deliver_now", #<GlobalID:0x007f3b3414df40 @uri=#<URI::GID gid://ibraema/Email/4>>
+Redirected to https://ibraema-dslins.c9users.io/emails/4
+Completed 302 Found in 179ms (ActiveRecord: 11.1ms)
+
+
+  [1m[36mEmail Load (0.3ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::DeliveryJob] [7ca037f4-919d-4f1d-8c15-51c707147f57] Performing ActionMailer::DeliveryJob from Async(mailers) with arguments: "EmailMailer", "send_new_email", "deliver_now", #<GlobalID:0x007f3b2004a1e8 @uri=#<URI::GID gid://ibraema/Email/4>>
+[ActiveJob] [ActionMailer::DeliveryJob] [7ca037f4-919d-4f1d-8c15-51c707147f57]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[ActiveJob] [ActionMailer::DeliveryJob] [7ca037f4-919d-4f1d-8c15-51c707147f57]   Rendering email_mailer/send_new_email.html.erb within layouts/mailer
+[ActiveJob] [ActionMailer::DeliveryJob] [7ca037f4-919d-4f1d-8c15-51c707147f57]   Rendered email_mailer/send_new_email.html.erb within layouts/mailer (0.5ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [7ca037f4-919d-4f1d-8c15-51c707147f57]   Rendering email_mailer/send_new_email.text.erb within layouts/mailer
+[ActiveJob] [ActionMailer::DeliveryJob] [7ca037f4-919d-4f1d-8c15-51c707147f57]   Rendered email_mailer/send_new_email.text.erb within layouts/mailer (0.6ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [7ca037f4-919d-4f1d-8c15-51c707147f57] EmailMailer#send_new_email: processed outbound mail in 18.2ms
+Started GET "/emails/4" for 150.161.2.202 at 2017-06-01 17:09:20 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmailsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mEmail Load (0.2ms)[0m  [1m[34mSELECT  "emails".* FROM "emails" WHERE "emails"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering emails/show.html.erb within layouts/application
+  Rendered emails/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 37ms (Views: 32.9ms | ActiveRecord: 0.2ms)
+
+
+[ActiveJob] [ActionMailer::DeliveryJob] [7ca037f4-919d-4f1d-8c15-51c707147f57] Sent mail to douglas._s@hotmail.com, dslins@outlook.com.br (533.2ms)
+[ActiveJob] [ActionMailer::DeliveryJob] [7ca037f4-919d-4f1d-8c15-51c707147f57] Date: Thu, 01 Jun 2017 17:09:20 +0000
+From: ibraematestes@gmail.com
+To: douglas._s@hotmail.com, 
+ dslins@outlook.com.br
+Message-ID: <59304a404d242_460c3f9d9a0a6e3830214@dslins-ibraema-4932052.mail>
+Subject: =?UTF-8?Q?Nova_Not=C3=ADcia:_Mensagem?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_59304a404c6fc_460c3f9d9a0a6e38301d7";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_59304a404c6fc_460c3f9d9a0a6e38301d7
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Ola,
+ola tudo bem
+
+Equipe IBRAEMA.
+
+----==_mimepart_59304a404c6fc_460c3f9d9a0a6e38301d7
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <p>Ol=C3=A1,</p>
+<p> ola tudo bem  </p>
+<p> Equipe IBRAEMA</p>
+
+  </body>
+</html>
+
+----==_mimepart_59304a404c6fc_460c3f9d9a0a6e38301d7--
+
+[ActiveJob] [ActionMailer::DeliveryJob] [7ca037f4-919d-4f1d-8c15-51c707147f57] Performed ActionMailer::DeliveryJob from Async(mailers) in 552.84ms
+Started GET "/emails" for 150.161.2.202 at 2017-06-01 17:09:28 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmailsController#index as HTML
+  Rendering emails/index.html.erb within layouts/application
+  [1m[36mEmail Load (0.2ms)[0m  [1m[34mSELECT "emails".* FROM "emails"[0m
+  Rendered emails/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 55ms (Views: 53.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/emails/new" for 150.161.2.202 at 2017-06-01 17:11:16 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EmailsController#new as HTML
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (26.3ms)
+  Rendered emails/new.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 449ms (Views: 421.4ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/emails" for 150.161.2.202 at 2017-06-01 17:11:20 +0000
+Cannot render console from 150.161.2.202! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by EmailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sDUuSn4MYO8j70mymtBX6ElUbVNhxE3BqhCO1PB49tkv8nGdMypcljeqx7EJkmDiKIf0gYlLrWgCf91pKb435A==", "email"=>{"subject"=>"", "message"=>""}, "commit"=>"Create Email"}
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering emails/new.html.erb within layouts/application
+  Rendered emails/_form.html.erb (4.9ms)
+  Rendered emails/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 194ms (Views: 188.3ms | ActiveRecord: 0.6ms)
+
+
