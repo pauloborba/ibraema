@@ -6,13 +6,13 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
   end
- 
+
   # GET /articles/1
   # GET /articles/1.json
   def show
     @articles = Article.where(params[:title])
   end
-  
+
   # GET /articles/new
   def new
     @article = Article.new

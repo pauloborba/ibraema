@@ -2,7 +2,7 @@
 
 <h1>Articles</h1>
 
-<table>
+<table id="articles_tb">
   <thead>
     <tr>
       <th>Title</th>
@@ -15,7 +15,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= article.title %></td>
+        <td id="title"><%= article.title %></td>
         <td><%= article.text %></td>
         <td><%= article.mark %></td>
         <td><%= link_to 'Show', article %></td>
