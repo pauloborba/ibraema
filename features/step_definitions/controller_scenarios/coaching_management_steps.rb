@@ -67,3 +67,18 @@ end
 Then(/^the facilitator is registered on the coaching activity at "([^"]*)"\.$/) do |arg1|
   expect(Facilitator.find_by(coaching_activity_id: @ca.id))
 end
+
+Given(/^is signed up on the coaching at "([^"]*)"$/) do |arg1|
+  @fac.update(coaching_activity_id: @ca.id)
+  
+  expect(Facilitator.find_by(coaching_activity_id: @ca.id)).not_to be nil
+end
+
+When(/^I unregister the facilitator with cpf "([^"]*)" from coaching activity at "([^"]*)"$/) do |arg1, arg2|
+  fac = Facilitator.find_by(cpf: arg1)
+  fac.update(coaching_activity_id: nil)
+end
+
+Then(/^the facilitator is unregistered from the coaching activity at "([^"]*)"\.$/) do |arg1|
+  expect(Facilitator.find_by(coaching_activity_id: @ca.id)).to be nil
+end
