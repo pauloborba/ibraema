@@ -29,3 +29,31 @@ And is signed up on the cosaching at "escola do Amapá"
 When I unregister the facilitator with cpf "123.456.789-12" from coaching activity at "escola do Amapá"
 Then the facilitator is unregistered from the coaching activity at "escola do Amapá".
 #vrificar se ele esta entre os facilitadores cadastrados no treinamento
+
+@gui @coaching_management
+Scenario: New coaching registered
+Given I am at the "Register coaching activity" page
+When I select the partner institution "escola do Amapá"
+And I fill the facilitators infos, name: "João Filipe Moura" 
+And CPF: "123.456.789-10"
+And I create a new coaching activity at "escola do Amapá"
+Then I see a confirmation message
+And I see the coaching activity at "escola do Amapá" details
+And the facilitator with cpf "123.456.789-10" is on the facilitators list
+
+@gui @coaching_management
+Scenario: New facilitator registered to an existing coaching
+Given I am at the "Coaching activities" page, under the sub-page "escola do Amapá"
+When I register a new facilitator with name: "Ramon Saboya" 
+And CPF: "321.654.789-78"
+Then I see a confirmation message
+And I see the coaching activity at "escola do Amapá" updated details
+
+@gui @coaching_management
+Scenario: Facilitator unregistered of an existing coaching
+Given I am at the "Coaching activities" page, under the sub-page "escola do Amapá"
+And the facilitator with name: "Ramon Saboya" And CPF: "321.654.789-78" is registered the coaching activity at "escola do Amapá"
+When I unregister the facilitator with name: "Ramon Saboya" 
+And CPF: "321.654.789-78"
+Then I see a confirmation message
+And I see facilitator "Ramon Saboya" on coaching activity at "escola do Amapá" details
