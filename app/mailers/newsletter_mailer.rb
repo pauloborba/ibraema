@@ -1,13 +1,13 @@
 class NewsletterMailer < ApplicationMailer
+  
+  default from: "ibraematestes@gmail.com"
+ 
+  def article_email(article)
+    @article = article
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.newsletter_mailer.article_email.subject
-  #
-  def article_email
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+    all_users = User.all
+    user_emails = all_users.collect(&:email).join(",")
+   
+    mail to: user_emails, subject: "Novo Artigo: " + article.title
   end
 end
