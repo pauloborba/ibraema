@@ -1,7 +1,7 @@
 class BroadcastMailer < ApplicationMailer
-  default from: "ibraematestes@gmail.com"
+   default from: "ibraematestes@gmail.com"
   
-  def send_new_email(email)
+  def broadcast_email(email)
     @email = email
     all_users = User.all
     user_emails = all_users.collect(&:email).join(",")
