@@ -26,6 +26,11 @@
     <%= f.text_field :email %>
   </div>
 
+  <div class="field">
+    <%= f.label :type %>
+    <%= f.select :type, options_for_select([ [ 'Person', 'Person' ], [ 'Company', 'Company' ] ]) %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
