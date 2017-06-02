@@ -23,7 +23,7 @@ Feature: Donation system
       | Rodrigo Cunha          | 489.319.764-41 | rcs8@cin.ufpe.br  | 100.00 |
   
   @controler @donation2
-  Scenario Outline: Not-sponsor Company donation is confirmed by payment gateway
+  Scenario Outline: Non-sponsor Company donation is confirmed by payment gateway
     Given Company with name "<NAME>", "<CNPJ>" and "<EMAIL>" is registered in the system
     And Company "<NAME>" is not marked as a sponsor
     When A donation of "<AMOUNT>" reais from company "<NAME>" is confirmed by payment gateway
