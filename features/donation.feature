@@ -21,3 +21,22 @@ Feature: Donation system
       | Luiz Henrique Tavares  | 467.132.198-00 | lhtc@cin.ufpe.br  | 27.61  |
       | Ramon de Saboya        | 264.497.216-37 | rsg3@cin.ufpe.br  | 123.36 |
       | Rodrigo Cunha          | 489.319.764-41 | rcs8@cin.ufpe.br  | 100.00 |
+  
+  @controler @donation2
+  Scenario Outline: Not-sponsor Company donation is confirmed by payment gateway
+    Given Company with name "<NAME>", "<CNPJ>" and "<EMAIL>" is registered in the system
+    And Company "<NAME>" is not marked as a sponsor
+    When A donation of "<AMOUNT>" reais from company "<NAME>" is confirmed by payment gateway
+    Then Company "<NAME>" is <MARKED> as a <TYPE>
+    
+    # Sponsor types are:
+    # - Bronze (donations of 100.00 or more reais)
+    # - Silver (donations of 1000.00 or more reais)
+    # - Gold (donations of 10000.00 or more reais)
+    # Fake CNPJ values
+    Examples:
+      | NAME     | CNPJ               | EMAIL               | AMOUNT   | MARKED           | TYPE           |
+      | Mr. Mix  | 65.492.248/6473-05 | mrmix@gmail.com     | 60.00    | still not marked | sponsor        |
+      | Fiat     | 95.000.498/2167-60 | fiat@fiat.com.br    | 780.00   | marked           | Bronze sponsor |
+      | Facebook | 15.648.267/6482-02 | change@facebook.com | 5000.00  | marked           | Silver sponsor |
+      | Google   | 32.659.489/4697-21 | social@google.com   | 16000.00 | marked           | Gold sponsor   |
