@@ -3,7 +3,7 @@
 
 #Scenario: Send email about notifications
 Given(/^I have an article "([^"]*)" registered in the system$/) do |title|
-  @article = {article: {title: title}}
+  @article = {article: {title: title, text: "news"}}
   post '/articles', @article
   expect(Article.find_by(title: title)).not_to be_nil
 end
