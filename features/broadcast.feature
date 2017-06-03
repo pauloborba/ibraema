@@ -20,8 +20,8 @@ Then the system will not send the email.
 
 @controller @broadcast @broadcast3
 Scenario: Send email
-Given I wrote an email with subject "Obrigado por lutar contra o analfabetismo"
-When I try to send the email "Obrigado por lutar contra o analfabetismo"
+Given I wrote an email with subject "Obrigado por lutar contra o analfabetismo" and message "Obrigado por se juntar ao time"
+When I try to send the email "Obrigado por lutar contra o analfabetismo" and message "Obrigado por se juntar ao time"
 Then an email is sent to the donors with subject "Obrigado por lutar contra o analfabetismo"
 And the message "Obrigado por lutar contra o analfabetismo" is registered on the system
 

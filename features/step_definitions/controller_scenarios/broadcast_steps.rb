@@ -25,9 +25,9 @@ Then(/^an email is sent to the donors with subject "([^"]*)" and the message "([
 end
 
 Then(/^the article "([^"]*)" is marked as sent\.$/) do |title|
-  @email = Article.find_by(title: title)
-  @email.mark = true
-  @email.save
+  @article = Article.find_by(title: title)
+  @article.mark = true
+  @article.save
   expect(Article.where(mark: true)).not_to be_empty
 end
 
@@ -40,18 +40,18 @@ Given(/^the article "([^"]*)" is marked as sent$/) do |title|
 end
 
 Then(/^the system will not send the email\.$/) do
-  emails = get '/emails'
-  !expect(emails).not_to be_empty
+  @email = get '/emails'
+  !expect(@email).not_to be_empty
 end
 
 #Scenario: Send message
-Given(/^I wrote an email with subject "([^"]*)"$/) do |subject|
-    @email = subject
-    expect(@email).not_to be_nil
+Given(/^I wrote an email with subject "([^"]*)" and message "([^"]*)"$/) do |subject, message|
+  @email = {email: {subject: subject, message: message}}
+  expect(Email.where(subject: subject)).not_to be_nil
 end
 
-When(/^I try to send the email "([^"]*)"$/) do |subject|
-  @email = {email: {subject: subject}}
+When(/^I try to send the email "([^"]*)" and message "([^"]*)"$/) do |subject, message|
+  @email = {email: {subject: subject, message: message}}
   post '/emails', @email
 end
 
