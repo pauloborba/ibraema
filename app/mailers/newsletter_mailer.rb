@@ -5,9 +5,9 @@ class NewsletterMailer < ApplicationMailer
   def article_email(article)
     @article = article
 
-    all_users = User.all
-    user_emails = all_users.collect(&:email).join(",")
+    donor_users = User.all.select{ |user| user.isDonor }
+    user_emails = donor_users.collect(&:email).join(",")
    
-    mail to: user_emails, subject: "Novo Artigo: " + article.title
+    mail to: user_emails, subject: "Nova Notícia: " + article.title
   end
 end
