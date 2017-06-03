@@ -1,13 +1,8 @@
 class DonorMailer < ApplicationMailer
-
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.donor_mailer.thanks_email.subject
-  #
-  def thanks_email
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  default from: "ibraematestes@gmail.com"
+ 
+  def thanks_email (donor)
+    @donor = donor
+    mail to: donor.email, subject: "Obrigado por nos ajudar a lutar contra o analfabetismo"
   end
 end
