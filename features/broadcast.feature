@@ -54,4 +54,13 @@ When I select "New Email"
 And I fill the field "Subject" in blank ""
 And I fill the field "Message" with the text "Obrigado"
 And I select "Create Email"
-Then I can see an error message.
+Then I can see an error message about the subject.
+
+@gui @broadcast @broadcast8
+Scenario: Send message without message (GUI)
+Given I am at the "emails" page
+When I select "New Email"
+And I fill the field "Subject" with "Nova Noticia"
+And I fill the field "Message" in blank ""
+And I select "Create Email"
+Then I can see an error message about the message.

@@ -29,6 +29,11 @@ end
 When(/^I fill the field "([^"]*)" in blank "([^"]*)"$/) do |subject, subject_text|
   fill_in(subject, with: subject_text)
 end
-Then(/^I can see an error message\.$/) do
+Then(/^I can see an error message about the subject\.$/) do
   expect(page).to have_content("Subject can't be blank")
+end
+
+#Scenario: Send message without message (GUI)
+Then(/^I can see an error message about the message\.$/) do
+  expect(page).to have_content("Message can't be blank")
 end
