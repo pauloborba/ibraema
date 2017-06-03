@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = User.where(type: "Person").each{ |user| user.becomes(user.type.constantize) }
   end
 
   # GET /people/1
@@ -14,7 +14,9 @@ class PeopleController < ApplicationController
 
   # GET /people/new
   def new
-    @person = Person.new
+    @person = User.new
+
+    forceType(@person)
   end
 
   # GET /people/1/edit
@@ -24,7 +26,9 @@ class PeopleController < ApplicationController
   # POST /people
   # POST /people.json
   def create
-    @person = Person.new(person_params)
+    @person = User.new(person_params)
+
+    forceType(@person)
 
     respond_to do |format|
       if @person.save
@@ -40,6 +44,8 @@ class PeopleController < ApplicationController
   # PATCH/PUT /people/1
   # PATCH/PUT /people/1.json
   def update
+    forceType(@person)
+
     respond_to do |format|
       if @person.update(person_params)
         format.html { redirect_to @person, notice: 'Person was successfully updated.' }
@@ -55,6 +61,7 @@ class PeopleController < ApplicationController
   # DELETE /people/1.json
   def destroy
     @person.destroy
+
     respond_to do |format|
       format.html { redirect_to people_url, notice: 'Person was successfully destroyed.' }
       format.json { head :no_content }
@@ -64,11 +71,16 @@ class PeopleController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_person
-      @person = Person.find(params[:id])
+      @person = User.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
       params.fetch(:person, {})
+    end
+    
+    # Makes sure type is Person
+    def forceType(person)
+      person.type = Person.constantize
     end
 end

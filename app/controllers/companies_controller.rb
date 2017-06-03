@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    @companies = User.where(type: "Company").each{ |user| user.becomes(user.type.constantize) }
   end
 
   # GET /companies/1
@@ -14,7 +14,9 @@ class CompaniesController < ApplicationController
 
   # GET /companies/new
   def new
-    @company = Company.new
+    @company = User.new
+
+    forceType(@company)
   end
 
   # GET /companies/1/edit
@@ -24,7 +26,9 @@ class CompaniesController < ApplicationController
   # POST /companies
   # POST /companies.json
   def create
-    @company = Company.new(company_params)
+    @company = User.new(company_params)
+
+    forceType(@company)
 
     respond_to do |format|
       if @company.save
@@ -40,6 +44,8 @@ class CompaniesController < ApplicationController
   # PATCH/PUT /companies/1
   # PATCH/PUT /companies/1.json
   def update
+    forceType(@company)
+
     respond_to do |format|
       if @company.update(company_params)
         format.html { redirect_to @company, notice: 'Company was successfully updated.' }
@@ -64,11 +70,16 @@ class CompaniesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company
-      @company = Company.find(params[:id])
+      @company = User.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
       params.fetch(:company, {})
+    end
+    
+    # Makes sure type is Company
+    def forceType(company)
+      company.type = Company.constantize
     end
 end
