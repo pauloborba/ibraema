@@ -31,7 +31,13 @@ Given I wrote an email with subject "" and message "Obrigado por se juntar ao ti
 When I try to send the email "" and message "Obrigado por se juntar ao time"
 Then the system will not send the email.
 
-@gui @broadcast @broadcast5
+@controller @broadcast @broadcast5
+Scenario: Send email with message in blank
+Given I wrote an email with subject "Obrigado" and message ""
+When I try to send the email "Obrigado" and message ""
+Then the system will not send the email.
+
+@gui @broadcast @broadcast6
 Scenario: Send message (GUI)
 Given I am at the "emails" page
 When I select "New Email"
@@ -41,7 +47,7 @@ And I select "Create Email"
 Then I can see a successful message
 And I can see the message with subject "Obrigado por lutar contra o analfabetismo" in the "emails" page.
 
-@gui @broadcast @broadcast6
+@gui @broadcast @broadcast7
 Scenario: Send message without subject (GUI)
 Given I am at the "emails" page
 When I select "New Email"
