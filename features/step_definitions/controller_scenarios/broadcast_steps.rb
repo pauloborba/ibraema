@@ -31,7 +31,6 @@ Then(/^the article "([^"]*)" is marked as sent\.$/) do |title|
   expect(Article.where(mark: true)).not_to be_empty
 end
 
-#Scenario: Send duplicate email about notifications
 Given(/^the article "([^"]*)" is marked as sent$/) do |title|
   @article = Article.find_by(title: title)
   @article.mark = true
@@ -65,10 +64,4 @@ end
 
 Then(/^the message "([^"]*)" is registered on the system$/) do |subject|
   expect(Email.where(subject: subject)).not_to be_empty
-end
-
-#Scenario: Send email with subject in blank
-When(/^I try to send the email with the subject "([^"]*)"$/) do |subject|
-  @email = {email: {subject: subject, message: message}}
-  post '/emails', @email
 end

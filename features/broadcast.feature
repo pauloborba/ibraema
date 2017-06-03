@@ -27,8 +27,8 @@ And the message "Obrigado por lutar contra o analfabetismo" is registered on the
 
 @controller @broadcast @broadcast4
 Scenario: Send email with subject in blank
-Given I wrote an email with subject ""
-When I try to send the email with the subject ""
+Given I wrote an email with subject "" and message "Obrigado por se juntar ao time"
+When I try to send the email "" and message "Obrigado por se juntar ao time"
 Then the system will not send the email.
 
 @gui @broadcast @broadcast5
