@@ -50,7 +50,7 @@ end
 #UPDATE BOOK
 
 When(/^I update the book with title "([^"]*)" to version "([^"]*)"$/) do |name, version|
-  @books = Book.find_by(nome:name)
+  @books = Book.find_by(nome: name)
   book_update = {book:{nome: name, versao: version}}
   put '/books/' + @books.id.to_s, book_update
 end

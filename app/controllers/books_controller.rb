@@ -20,7 +20,12 @@ class BooksController < ApplicationController
   # GET /books/1/edit
   def edit
   end
-
+  
+  def download 
+    param1 = params[:book_id]
+    @book = Book.find(param1)
+    send_file Rails.root.join('public', @book.nome << '.pdf'), :type=>"application/pdf", :x_sendfile=>true
+  end
   # POST /books
   # POST /books.json
   def create

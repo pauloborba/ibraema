@@ -1,7 +1,7 @@
 class Book < ApplicationRecord
-  validates :nome, presence: {message: "Um Livro precisa de um nome."}
-  validates :versao, presence: {message: "A versão não pode ser vazia."}
-  validates :nome, uniqueness: {message: "Livro ja cadastrado."}
+  validates :nome, presence: {message: " é obrigatório."}
+  validates :versao, presence: {message: "não pode ser vazia."}
+  validates :nome, uniqueness: {message: "do livro ja cadastrado."}
 
   before_save :check_blank_name
 
