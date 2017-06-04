@@ -83,11 +83,3 @@ Then(/^I see an update message$/) do
 expect(page).to have_content("Book was successfully updated.")
 end
 
-#DOWNLOAD BOOK
-When(/^I click the "([^"]*)" link$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^a download starts for "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end

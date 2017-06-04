@@ -54,13 +54,3 @@ When(/^I update the book with title "([^"]*)" to version "([^"]*)"$/) do |name, 
   book_update = {book:{nome: name, versao: version}}
   put '/books/' + @books.id.to_s, book_update
 end
-
-#DOWNLOAD A BOOK 
-
-When(/^I download the book "([^"]*)" and version "([^"]*)"$/) do |name, version|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^the file "([^"]*)" is sent to the user$/) do |name|
-  pending # Write code here that turns the phrase above into concrete actions
-end

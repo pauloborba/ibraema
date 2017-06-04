@@ -22,7 +22,7 @@ Scenario: Update Books
 Given the book with title "Historia do analfabetismo" version "1" is already in the system
 When I update the book with title "Historia do analfabetismo" to version "2"
 Then the book with title "Historia do analfabetismo" version "2" is registered in the system
-
+@wip
 Scenario: Download book pdf
 Given the book with title "Historia do analfabetismo" version "1" is already in the system
 When I download the book "História do analfabetismo" and version "X"
@@ -63,7 +63,7 @@ When I fill in the name and the version
 And I click the "Update Book" button
 Then I see an update message
 And I see the "books" menu
-
+@wip
 Scenario: Download book pdf - GUI
 Given I am at the "books" menu
 And The book with title "Historia do analfabetismo" version "1" is already in the "books" list
