@@ -56,10 +56,11 @@ When(/^I update the book with title "([^"]*)" to version "([^"]*)"$/) do |name, 
 end
 
 #DOWNLOAD A BOOK 
-When(/^I download the book “História do analfabetismo” and version “X”$/) do
+
+When(/^I download the book "([^"]*)" and version "([^"]*)"$/) do |name, version|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Then(/^the file "([^"]*)" is sent to the user$/) do |arg1|
+Then(/^the file "([^"]*)" is sent to the user$/) do |name|
   pending # Write code here that turns the phrase above into concrete actions
 end

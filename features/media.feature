@@ -25,7 +25,7 @@ Then the book with title "Historia do analfabetismo" version "2" is registered i
 
 Scenario: Download book pdf
 Given the book with title "Historia do analfabetismo" version "1" is already in the system
-When I download the book “História do analfabetismo” and version “X”
+When I download the book "História do analfabetismo" and version "X"
 Then the file "Historia do Analfabetismo.pdf" is sent to the user
 
 Scenario: Add a book - GUI
