@@ -29,7 +29,7 @@ When I try to send the email "Obrigado" and message ""
 Then the system will not send the email.
 
 @gui @broadcast @broadcast5
-Scenario: Send message (GUI)
+Scenario: Send email (GUI)
 Given I am at the "emails" page
 When I select "New Email"
 And I fill the field "Subject" with "Obrigado por lutar contra o analfabetismo"
@@ -39,7 +39,7 @@ Then I can see a successful message
 And I can see the message with subject "Obrigado por lutar contra o analfabetismo" in the "emails" page.
 
 @gui @broadcast @broadcast6
-Scenario: Send message without subject (GUI)
+Scenario: Send email without subject (GUI)
 Given I am at the "emails" page
 When I select "New Email"
 And I fill the field "Subject" in blank ""
@@ -48,7 +48,7 @@ And I select "Create Email"
 Then I can see an error message about the subject.
 
 @gui @broadcast @broadcast7
-Scenario: Send message without message (GUI)
+Scenario: Send email without message (GUI)
 Given I am at the "emails" page
 When I select "New Email"
 And I fill the field "Subject" with "Nova Noticia"
