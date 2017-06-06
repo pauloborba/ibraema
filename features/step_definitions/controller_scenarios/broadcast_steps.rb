@@ -8,13 +8,6 @@ Given(/^I have an article "([^"]*)" registered in the system$/) do |title|
   expect(Article.find_by(title: title)).not_to be_nil
 end
 
-Given(/^the article "([^"]*)" isn’t marked as sent$/) do |title|
-  @article = Article.find_by(title: title)
-  @article.mark = false
-  @article.save
-  expect(Article.where(mark: false)).not_to be_empty
-end
-
 When(/^I try to send an email with the subject "([^"]*)" and the message "([^"]*)"$/) do |subject, message|
   @email = {email: {subject: subject, message: message}}
   post '/emails', @email
@@ -25,13 +18,6 @@ Then(/^an email is sent to the donors with subject "([^"]*)" and the message "([
 end
 
 Then(/^the article "([^"]*)" is marked as sent\.$/) do |title|
-  @article = Article.find_by(title: title)
-  @article.mark = true
-  @article.save
-  expect(Article.where(mark: true)).not_to be_empty
-end
-
-Given(/^the article "([^"]*)" is marked as sent$/) do |title|
   @article = Article.find_by(title: title)
   @article.mark = true
   @article.save
