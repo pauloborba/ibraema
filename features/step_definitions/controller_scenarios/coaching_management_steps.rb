@@ -29,14 +29,14 @@ end
 When(/^I register a coaching activity starting at day "([^"]*)" and finishing at "([^"]*)" at institution "([^"]*)" with facilitator with cpf "([^"]*)" to the coaching$/) do |arg1, arg2, arg3, arg4|
   @ca = {coaching_activity: {date_start: TimeUtils.toTimestamp(arg1), date_finish: TimeUtils.toTimestamp(arg2), institution_id: @inst.id}}
   post '/coaching_activities', @ca
-  @ca = CoachingActivity.find_by(institution: @inst.id)
-    
-  fac = Facilitator.find_by(cpf: arg4)
-  fac.update(coaching_activity_id: @ca.id)
+
+  @ca = CoachingActivity.find_by(institution_id: @inst.id)
+  @fac.update(coaching_activity_id: @ca.id)
+  
 end
 
 Then(/^the coaching activity is register on the system$/) do
-  expect(CoachingActivity.find_by(id: @ca.id)).not_to be nil
+  expect(CoachingActivity.find(@ca.id)).not_to be nil
 end
 
 Then(/^the coaching activity at "([^"]*)" has the facilitator with CPF "([^"]*)"$/) do |arg1, arg2|
@@ -49,7 +49,7 @@ Given(/^the coaching activity at "([^"]*)" starting at "([^"]*)" and finishing a
   @ca = {coaching_activity: {date_start: TimeUtils.toTimestamp(arg2), date_finish: TimeUtils.toTimestamp(arg3), institution_id: @inst.id}}
   post '/coaching_activities', @ca
   
-  @ca = CoachingActivity.find_by(institution: @inst.id)
+  @ca = CoachingActivity.find_by(institution_id: @inst.id)
     
   expect(@ca).not_to be nil
 end
@@ -81,4 +81,9 @@ end
 
 Then(/^the facilitator is unregistered from the coaching activity at "([^"]*)"\.$/) do |arg1|
   expect(Facilitator.find_by(coaching_activity_id: @ca.id)).to be nil
+end
+
+Given(/^is signed up on the cosaching at "([^"]*)"$/) do |arg1|
+  @fac.update(coaching_activity_id: @ca.id)
+  expect(Facilitator.find_by(coaching_activity_id: @ca.id)).not_to be nil
 end

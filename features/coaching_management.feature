@@ -11,7 +11,7 @@ When I register a coaching activity starting at day "20/05/2017" and finishing a
 Then the coaching activity is register on the system
 And the coaching activity at "escola do Amapá" has the facilitator with CPF "123.456.789-12"
 
-@controller @coaching_management
+@controller @coaching_management @b
 Scenario: Register a facilitator to an existing coaching
 Given "escola do Amapá" with cnpj "98688378000124" is registered as a partner
 And the coaching activity at "escola do Amapá" starting at "20/03/2017" and finishing at "22/03/2017" is registered on the system
@@ -20,7 +20,7 @@ When I register the facilitator with name "joao" and cpf "123.456.789.14" at coa
 Then the facilitator is registered on the coaching activity at "escola do Amapá".
 #adcionar cenario em caso de um facilitador ja estar cadastrado no treinamento
 
-@controller @coaching_management
+@controller @coaching_management @c
 Scenario: Unregister a single facilitator of an existing coaching
 Given "escola do Amapá" with cnpj "98688378000124" is registered as a partner
 And the facilitator with name "jaum" and CPF "123.456.789-12" is registered
@@ -30,7 +30,7 @@ When I unregister the facilitator with cpf "123.456.789-12" from coaching activi
 Then the facilitator is unregistered from the coaching activity at "escola do Amapá".
 #vrificar se ele esta entre os facilitadores cadastrados no treinamento
 
-@gui @coaching_management
+@gui @coaching_management @d
 Scenario: New coaching registered
 Given I am at the "Register coaching activity" page
 When I select the partner institution "escola do Amapá"

@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170601192758) do
 
   create_table "donations", force: :cascade do |t|
@@ -34,6 +35,33 @@ ActiveRecord::Schema.define(version: 20170601192758) do
     t.string   "subject"
     t.text     "message"
     t.boolean  "mark"
+=======
+ActiveRecord::Schema.define(version: 20170608131718) do
+
+  create_table "coaching_activities", force: :cascade do |t|
+    t.datetime "date_start"
+    t.datetime "date_finish"
+    t.integer  "institution_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["institution_id"], name: "index_coaching_activities_on_institution_id"
+  end
+
+  create_table "facilitators", force: :cascade do |t|
+    t.string   "name"
+    t.string   "cpf"
+    t.integer  "institution_id"
+    t.integer  "coaching_activity_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["coaching_activity_id"], name: "index_facilitators_on_coaching_activity_id"
+    t.index ["institution_id"], name: "index_facilitators_on_institution_id"
+  end
+
+  create_table "institutions", force: :cascade do |t|
+    t.string   "name"
+    t.string   "cnpj"
+>>>>>>> coaching
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

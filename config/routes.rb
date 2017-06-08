@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :coaching_activities
+  resources :institutions
   resources :facilitators
   resources :companies
   resources :people

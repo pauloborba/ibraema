@@ -69,6 +69,6 @@ class CoachingActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coaching_activity_params
-      params.require(:coaching_activity).permit(:start_date, :finish_date, :institution_id)
+      params.require(:coaching_activity).permit(:date_start, :date_finish, :institution_id)
     end
 end
