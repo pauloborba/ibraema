@@ -28,7 +28,7 @@ class DonationsController < ApplicationController
 
     respond_to do |format|
       if @donation.save
-        if (@donation.user.type = 'Company' && @donation.user.becomes(@donation.user.type.constantize).isSponsor)
+        if (@donation.user.type = 'Company' && @donation.user.isSponsor)
           SponsorMailer.thanks_email(@donation.user).deliver_later
         else
           DonorMailer.thanks_email(@donation.user).deliver_later
