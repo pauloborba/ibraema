@@ -55,3 +55,10 @@ And I fill the field "Subject" with "Nova Noticia"
 And I fill the field "Message" in blank ""
 And I select "Create Email"
 Then I can see an error message about the message.
+
+@gui @broadcast @broadcast8
+Scenario: Emails sent (GUI)
+Given the email with subject "Obrigado por lutar contra o analfabetismo" and message "Obrigado" was sent to users
+And the email with subject "Novas atividade realizadas" and message "Hoje realizamos uma nova atividade" was sent to users
+When I go to the "emails" page
+Then I can see a list with the subjects "Obrigado por lutar contra o analfabetismo" and "Novas atividade realizadas"
