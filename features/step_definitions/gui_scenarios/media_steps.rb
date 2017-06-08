@@ -64,7 +64,7 @@ When(/^I fill in the name with "([^"]*)" and the version with "([^"]*)"$/) do |n
 end
 
 Then(/^I see an invalid book name error message$/) do
-  expect(page).to have_content("Um Livro precisa de um nome.")
+  expect(page).to have_content("Nome é obrigatório")
 end
 
 #UPDATE BOOK
