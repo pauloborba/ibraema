@@ -33,7 +33,7 @@ Feature: Donation system
     # - Bronze (donations of 100.00 or more reais)
     # - Silver (donations of 1000.00 or more reais)
     # - Gold (donations of 10000.00 or more reais)
-    # Fake CNPJ values
+    # Fake CNPJ and email values
     Examples:
       | NAME     | CNPJ               | EMAIL               | AMOUNT   | MARKED           | TYPE           |
       | Mr. Mix  | 65.492.248/6473-05 | mrmix@gmail.com     | 60.00    | still not marked | sponsor        |
