@@ -65,11 +65,13 @@ When(/^I unregister the facilitator with cpf "([^"]*)" from coaching activity at
   @fac.coaching_activities.delete(@ca)
 end
 
-Given(/^is signed up on the cosaching at "([^"]*)"$/) do |arg1|
-  @fac.coaching_activities << @ca
-  expect(@fac.coaching_activities[0]).not_to be nil
-end
-
 Then(/^the facilitator with cpf "([^"]*)" is no longer at the coaching activity$/) do |arg1|
   expect(@fac.coaching_activities[0]).to be nil
+end
+
+Then(/^he only appears once on the coaching activity facilitators list$/) do
+  if (@ca.facilitators.where(cpf: @fac.cpf).length > 1) then
+    @ca.facilitators.delete(@fac)
+  end
+  expect(@ca.facilitators.where(cpf: @fac.cpf).length > 1).to be false
 end

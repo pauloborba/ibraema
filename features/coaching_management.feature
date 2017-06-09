@@ -19,19 +19,26 @@ And the facilitator with name "joao" and cpf "123.456.789.14" is not registered 
 When I register the facilitator with name "joao" and cpf "123.456.789.14" at coaching activity at "escola do Amapá"
 Then the facilitator is registered on the coaching activity at "escola do Amapá".
 
-#adcionar cenario em caso de um facilitador ja estar cadastrado no treinamento
-
 @controller @coaching_management @scenario3
 Scenario: Unregister a single facilitator of an existing coaching
 Given "escola do Amapá" with cnpj "98688378000124" is registered as a partner
 And the facilitator with name "jaum" and CPF "123.456.789-12" is registered
 And the coaching activity at "escola do Amapá" starting at "20/03/2017" and finishing at "22/03/2017" is registered on the system
-And is signed up on the cosaching at "escola do Amapá"
+And is signed up on the coaching at "escola do Amapá"
 When I unregister the facilitator with cpf "123.456.789-12" from coaching activity at "escola do Amapá"
 Then the facilitator with cpf "123.456.789-12" is no longer at the coaching activity
 #vrificar se ele esta entre os facilitadores cadastrados no treinamento
 
-@gui @coaching_management @scenario4
+@controller @coaching_management @scenario4
+Scenario: Facilitator signed up to a coaching activity twice
+Given "escola do Amapá" with cnpj "98688378000124" is registered as a partner
+And the facilitator with name "jaum" and CPF "123.456.789-12" is registered
+And the coaching activity at "escola do Amapá" starting at "20/03/2017" and finishing at "22/03/2017" is registered on the system
+And is signed up on the coaching at "escola do Amapá"
+When I register the facilitator with name "joao" and cpf "123.456.789.14" at coaching activity at "escola do Amapá"
+Then he only appears once on the coaching activity facilitators list
+
+@gui @coaching_management
 Scenario: New coaching registered
 Given I am at the "Register coaching activity" page
 When I select the partner institution "escola do Amapá"
