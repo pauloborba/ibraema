@@ -40,3 +40,10 @@ Feature: Donation system
       | Fiat     | 95.000.498/2167-60 | fiat@fiat.com.br    | 780.00   | marked           | Bronze sponsor |
       | Facebook | 15.648.267/6482-02 | change@facebook.com | 5000.00  | marked           | Silver sponsor |
       | Google   | 32.659.489/4697-21 | social@google.com   | 16000.00 | marked           | Gold sponsor   |
+  
+  @gui @dontation3
+  Scenario: Person created is visible under the User index
+    Given I am at the "people" page
+    And I can see the person with name "Douglas", CPF "105.473.572-64" and email "dsl@cin.ufpe.br"
+    When I go to the "users" page
+    Then I can see the user with name "Douglas", CPF "105.473.572", email "dsl@cin.ufpe.br" and type "Person"
