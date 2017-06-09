@@ -28,15 +28,14 @@ And the facilitator with name "jaum" and CPF "123.456.789-12" is registered
 And the coaching activity at "escola do Amapá" starting at "20/03/2017" and finishing at "22/03/2017" is registered on the system
 And is signed up on the cosaching at "escola do Amapá"
 When I unregister the facilitator with cpf "123.456.789-12" from coaching activity at "escola do Amapá"
-Then the facilitator is unregistered from the coaching activity at "escola do Amapá".
-And the facilitator with cpf "123.456.789-12" is no longer at the coaching activity
+Then the facilitator with cpf "123.456.789-12" is no longer at the coaching activity
 #vrificar se ele esta entre os facilitadores cadastrados no treinamento
 
 @gui @coaching_management @scenario4
 Scenario: New coaching registered
 Given I am at the "Register coaching activity" page
 When I select the partner institution "escola do Amapá"
-And I fill the facilitators infos, name: "João Filipe Moura" 
+And I fill the facilitators infos, name: "João Filipe Moura"
 And CPF: "123.456.789-10"
 And I create a new coaching activity at "escola do Amapá"
 Then I see a confirmation message
@@ -46,7 +45,7 @@ And the facilitator with cpf "123.456.789-10" is on the facilitators list
 @gui @coaching_management
 Scenario: New facilitator registered to an existing coaching
 Given I am at the "Coaching activities" page, under the sub-page "escola do Amapá"
-When I register a new facilitator with name: "Ramon Saboya" 
+When I register a new facilitator with name: "Ramon Saboya"
 And CPF: "321.654.789-78"
 Then I see a confirmation message
 And I see the coaching activity at "escola do Amapá" updated details
@@ -55,7 +54,7 @@ And I see the coaching activity at "escola do Amapá" updated details
 Scenario: Facilitator unregistered of an existing coaching
 Given I am at the "Coaching activities" page, under the sub-page "escola do Amapá"
 And the facilitator with name: "Ramon Saboya" And CPF: "321.654.789-78" is registered the coaching activity at "escola do Amapá"
-When I unregister the facilitator with name: "Ramon Saboya" 
+When I unregister the facilitator with name: "Ramon Saboya"
 And CPF: "321.654.789-78"
 Then I see a confirmation message
 And I see facilitator "Ramon Saboya" on coaching activity at "escola do Amapá" details
