@@ -1,5 +1,4 @@
 class Facilitator < ApplicationRecord
   belongs_to :institution
-  has_many :coaching_activity
-  belongs_to :coaching_activity, optional: true
+  has_and_belongs_to_many :coaching_activities
 end

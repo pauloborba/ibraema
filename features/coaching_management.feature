@@ -3,7 +3,7 @@ AS A system manager
 I WANT TO register coaching activities with an institution or individual
 SO THAT I can grant access to facilitator And keep a history of coaching activities
 
-@controller @coaching_management @a
+@controller @coaching_management @scenario1
 Scenario: Register a coaching
 Given "escola do Amapá" with cnpj "98688378000124" is registered as a partner
 And the facilitator with name "jaum" and CPF "123.456.789-12" is registered
@@ -11,16 +11,17 @@ When I register a coaching activity starting at day "20/05/2017" and finishing a
 Then the coaching activity is register on the system
 And the coaching activity at "escola do Amapá" has the facilitator with CPF "123.456.789-12"
 
-@controller @coaching_management @b
+@controller @coaching_management @scenario2
 Scenario: Register a facilitator to an existing coaching
 Given "escola do Amapá" with cnpj "98688378000124" is registered as a partner
 And the coaching activity at "escola do Amapá" starting at "20/03/2017" and finishing at "22/03/2017" is registered on the system
 And the facilitator with name "joao" and cpf "123.456.789.14" is not registered on coaching activity at "escola do Amapá"
 When I register the facilitator with name "joao" and cpf "123.456.789.14" at coaching activity at "escola do Amapá"
 Then the facilitator is registered on the coaching activity at "escola do Amapá".
+
 #adcionar cenario em caso de um facilitador ja estar cadastrado no treinamento
 
-@controller @coaching_management @c
+@controller @coaching_management @scenario3
 Scenario: Unregister a single facilitator of an existing coaching
 Given "escola do Amapá" with cnpj "98688378000124" is registered as a partner
 And the facilitator with name "jaum" and CPF "123.456.789-12" is registered
@@ -28,9 +29,10 @@ And the coaching activity at "escola do Amapá" starting at "20/03/2017" and fin
 And is signed up on the cosaching at "escola do Amapá"
 When I unregister the facilitator with cpf "123.456.789-12" from coaching activity at "escola do Amapá"
 Then the facilitator is unregistered from the coaching activity at "escola do Amapá".
+And the facilitator with cpf "123.456.789-12" is no longer at the coaching activity
 #vrificar se ele esta entre os facilitadores cadastrados no treinamento
 
-@gui @coaching_management @d
+@gui @coaching_management @scenario4
 Scenario: New coaching registered
 Given I am at the "Register coaching activity" page
 When I select the partner institution "escola do Amapá"
