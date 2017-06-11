@@ -42,6 +42,9 @@
 #header {
   order: 1;
   flex: 0 0 150px;
+  
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 #content {
@@ -56,4 +59,23 @@
 #footer {
   order: 3;
   flex: 0 0 100px;
+}
+
+#nav-bar {
+  order: 1;
+  flex: 0 0 auto;
+  
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  
+  background-color: #262626;
+  padding: 20px;
+}
+
+.nav-item {
+  order: 1;
+  flex: 0 0 auto;
+  
+  color: white;
 }

@@ -14,9 +14,7 @@ class PeopleController < ApplicationController
 
   # GET /people/new
   def new
-    @person = User.new
-
-    forceType(@person)
+    @person = Person.new
   end
 
   # GET /people/1/edit
@@ -27,8 +25,6 @@ class PeopleController < ApplicationController
   # POST /people.json
   def create
     @person = User.new(person_params)
-
-    forceType(@person)
 
     respond_to do |format|
       if @person.save
@@ -44,8 +40,6 @@ class PeopleController < ApplicationController
   # PATCH/PUT /people/1
   # PATCH/PUT /people/1.json
   def update
-    forceType(@person)
-
     respond_to do |format|
       if @person.update(person_params)
         format.html { redirect_to @person, notice: 'Person was successfully updated.' }
@@ -76,11 +70,8 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params.fetch(:person, {})
-    end
-    
-    # Makes sure type is Person
-    def forceType(person)
-      person.type = Person.constantize
+      params.require(:person)[:identifier] = params.require(:person)[:cpf]
+      params.require(:person)[:type] = 'Person'
+      params.require(:person).permit(:name, :identifier, :email, :type)
     end
 end
