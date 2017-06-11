@@ -2,5 +2,5 @@
 
 <%= render 'form', coaching_activity: @coaching_activity %>
 
-<%= link_to 'Show', @coaching_activity %> |
-<%= link_to 'Back', coaching_activities_path %>
+<%= link_to 'Show', institution_coaching_activity_path(@institution, @coaching_activity) %> |
+<%= link_to 'Back', :back %>

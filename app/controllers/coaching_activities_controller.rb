@@ -4,12 +4,14 @@ class CoachingActivitiesController < ApplicationController
   # GET /coaching_activities
   # GET /coaching_activities.json
   def index
-    @coaching_activities = CoachingActivity.all
+    @institution = Institution.find(params[:institution_id])
+    @coaching_activities = @institution.coaching_activities
   end
 
   # GET /coaching_activities/1
   # GET /coaching_activities/1.json
   def show
+    @institution = Institution.find(params[:institution_id])
   end
 
   # GET /coaching_activities/new
@@ -19,16 +21,19 @@ class CoachingActivitiesController < ApplicationController
 
   # GET /coaching_activities/1/edit
   def edit
+    @institution = Institution.find(params[:institution_id])
   end
 
   # POST /coaching_activities
   # POST /coaching_activities.json
   def create
     @coaching_activity = CoachingActivity.new(coaching_activity_params)
+    @coaching_activity.institution = Institution.find(params[:institution_id])
+    @institution = Institution.find(params[:institution_id])
 
     respond_to do |format|
       if @coaching_activity.save
-        format.html { redirect_to @coaching_activity, notice: 'Coaching activity was successfully created.' }
+        format.html { redirect_to institution_coaching_activity_path(@institution, @coaching_activity), notice: 'Coaching activity was successfully created.' }
         format.json { render :show, status: :created, location: @coaching_activity }
       else
         format.html { render :new }
@@ -54,9 +59,10 @@ class CoachingActivitiesController < ApplicationController
   # DELETE /coaching_activities/1
   # DELETE /coaching_activities/1.json
   def destroy
+    @institution = Institution.find(params[:institution_id])
     @coaching_activity.destroy
     respond_to do |format|
-      format.html { redirect_to coaching_activities_url, notice: 'Coaching activity was successfully destroyed.' }
+      format.html { redirect_to institution_coaching_activities_url, notice: 'Coaching activity was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
