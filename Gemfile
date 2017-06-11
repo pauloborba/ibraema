@@ -58,3 +58,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #Pdf generator
 gem 'prawn'
+
+#Pdf reader
+gem 'pdf-reader'
