@@ -2,5 +2,5 @@
 
 <%= render 'form', facilitator: @facilitator %>
 
-<%= link_to 'Show', @facilitator %> |
-<%= link_to 'Back', facilitators_path %>
+<%= link_to 'Show', institution_coaching_activity_facilitator_path(@institution, @coaching_activity, @facilitator) %> |
+<%= link_to 'Back', :back %>

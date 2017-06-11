@@ -19,10 +19,10 @@
         <td><%= facilitator.name %></td>
         <td><%= facilitator.cpf %></td>
         <td><%= facilitator.institution %></td>
-        <td><%= facilitator.coaching_activity %></td>
-        <td><%= link_to 'Show', facilitator %></td>
-        <td><%= link_to 'Edit', edit_facilitator_path(facilitator) %></td>
-        <td><%= link_to 'Destroy', facilitator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= facilitator.coaching_activities %></td>
+        <td><%= link_to 'Show', institution_coaching_activity_facilitator_path(@institution, @coaching_activity, facilitator) %></td>
+        <td><%= link_to 'Edit', edit_institution_coaching_activity_facilitator_path(@institution, @coaching_activity, facilitator) %></td>
+        <td><%= link_to 'Destroy', institution_coaching_activity_facilitator_path(@institution, @coaching_activity, facilitator), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,5 @@
 
 <br>
 
-<%= link_to 'New Facilitator', new_facilitator_path %>
+<%= link_to 'New Facilitator', new_institution_coaching_activity_facilitator_path(@institution, @coaching_activity) %>
+<%= link_to 'Back', institution_coaching_activities_path(@institution, @coaching_activity) %>

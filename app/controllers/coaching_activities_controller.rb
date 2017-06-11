@@ -45,9 +45,10 @@ class CoachingActivitiesController < ApplicationController
   # PATCH/PUT /coaching_activities/1
   # PATCH/PUT /coaching_activities/1.json
   def update
+    @institution = @coaching_activity.institution.id
     respond_to do |format|
       if @coaching_activity.update(coaching_activity_params)
-        format.html { redirect_to @coaching_activity, notice: 'Coaching activity was successfully updated.' }
+        format.html { redirect_to institution_coaching_activity_path(@institution, @coaching_activity), notice: 'Coaching activity was successfully updated.' }
         format.json { render :show, status: :ok, location: @coaching_activity }
       else
         format.html { render :edit }

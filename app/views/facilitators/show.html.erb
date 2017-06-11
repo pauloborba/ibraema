@@ -17,8 +17,8 @@
 
 <p>
   <strong>Coaching activity:</strong>
-  <%= @facilitator.coaching_activity %>
+  <%= @facilitator.coaching_activities %>
 </p>
 
-<%= link_to 'Edit', edit_facilitator_path(@facilitator) %> |
-<%= link_to 'Back', facilitators_path %>
+<%= link_to 'Edit', edit_institution_coaching_activity_facilitator_path(@institution, @coaching_activity, @facilitator) %> |
+<%= link_to 'Back', institution_coaching_activity_facilitators_path(@institution, @coaching_activity) %>
