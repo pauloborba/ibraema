@@ -1,10 +1,11 @@
+@report
 Feature: Reports management
 AS A system administrator
 I WANT TO generate quarterly reports
 SO THAT I can keep track of past activities
 
 #Controller scenarios
-@report1
+@controller @report1
 Scenario: Generate an expenditure report
   Given The user "Douglas" is registered in the system
   And The user "João Filipe" is registered in the system
@@ -19,4 +20,4 @@ Scenario: Generate an expenditure report
   And User "Ramon" made a donation of "12.85" at "12:20 21/09/2016"
   And User "Rodrigo" made a donation of "16.29" at "08:10 12/12/2016"
   When I request the Accounting report from "July 2016" to "September 2016"
-  Then I recieve a report with all data from Accounting
+  Then I recieve a Accounting report with data from "July 2016" to "September 2016"

@@ -19,6 +19,19 @@ When(/^I request the Accounting report from "([^"]*)" to "([^"]*)"$/) do |start_
   Report.pdfMaker(Donation.all.select { |donation| (donation.donation_date >= start_date && donation.donation_date <= end_date) })
 end
 
-Then(/^I recieve a report with all data from Accounting$/) do
-   Report.pdfReader
+Then(/^I recieve a Accounting report with data from "([^"]*)" to "([^"]*)"$/) do |start_date, end_date|
+  start_date = TimeUtils.getStartDate(start_date)
+  end_date = TimeUtils.getEndDate(end_date)
+  
+  systemDonations = Donation.all.select { |donation| (donation.donation_date >= start_date && donation.donation_date <= end_date) }
+  pdfDonations = Report.pdfReader
+  
+  expect(pdfDonations.count).to be systemDonations.count
+  
+  c = 0
+  systemDonations.each do |donation|
+    expect(donation.amount.to_f).to be pdfDonations[c][0]
+    expect(donation.donation_date.to_i).to be pdfDonations[c][1].to_i
+    c = c + 1
+  end
 end
