@@ -34,37 +34,65 @@ And the facilitator with name "jaum" and CPF "123.456.789-12" is registered on t
 When I register the facilitator with name "jaum" and cpf "123.456.789-12" at coaching activity at "escola do Amapá"
 Then the facilitator with cpf "123.456.789-12" only appears once on the coaching activity facilitators list
 
+@coachings @gui @coaching5
 Scenario: New institution registered
 Given I am at the "institutions" page
-And I select "New institution"
-And I fill the field "name" with "escola do amapa"
-And I fill the field "cnpj" with "12093810"
-
-
-@coachings @gui @coaching5
-Scenario: New coaching registered
-Given I am at the "Register coaching activity" page
-When I select the partner institution "escola do Amapá"
-And I fill the facilitators infos, name: "João Filipe Moura"
-And CPF: "123.456.789-10"
-And I create a new coaching activity at "escola do Amapá"
-Then I see a confirmation message
-And I see the coaching activity at "escola do Amapá" details
-And the facilitator with cpf "123.456.789-10" is on the facilitators list
+When I select "New Institution"
+And I fill the field "Name" with "escola do amapa"
+And I fill the field "Cnpj" with "12093810"
+And I select "Create Institution"
+Then I see successful message "Institution was successfully created."
 
 @coachings @gui @coaching6
-Scenario: New facilitator registered to an existing coaching
-Given I am at the "Coaching activities" page, under the sub-page "escola do Amapá"
-When I register a new facilitator with name: "Ramon Saboya"
-And CPF: "321.654.789-78"
-Then I see a confirmation message
-And I see the coaching activity at "escola do Amapá" updated details
+Scenario: New coaching registered
+Given I am at the "institutions" page
+And I select "New Institution"
+And I fill the field "Name" with "escola do amapa"
+And I fill the field "Cnpj" with "12093810"
+And I select "Create Institution"
+And I am at the "institutions/1/coaching_activities" page
+When I select "New Coaching Activity"
+And I select "date_start" "15" from "coaching_activity_date_start_3i", "April" from "coaching_activity_date_start_2i", "2017" from "coaching_activity_date_start_1i"
+And I select "date_finish" "19" from "coaching_activity_date_finish_3i", "April" from "coaching_activity_date_finish_2i", "2017" from "coaching_activity_date_finish_1i"
+And I select "Create Coaching activity"
+Then I see successful message "Coaching activity was successfully created."
 
 @coachings @gui @coaching7
+Scenario: New facilitator registered to an existing coaching
+Given I am at the "institutions" page
+And I select "New Institution"
+And I fill the field "Name" with "escola do amapa"
+And I fill the field "Cnpj" with "12093810"
+And I select "Create Institution"
+And I am at the "institutions/1/coaching_activities" page
+And I select "New Coaching Activity"
+And I select "date_start" "15" from "coaching_activity_date_start_3i", "April" from "coaching_activity_date_start_2i", "2017" from "coaching_activity_date_start_1i"
+And I select "date_finish" "19" from "coaching_activity_date_finish_3i", "April" from "coaching_activity_date_finish_2i", "2017" from "coaching_activity_date_finish_1i"
+And I select "Create Coaching activity"
+And I am at the "institutions/1/coaching_activities/1/facilitators" page
+When I select "New Facilitator"
+And I fill the field "Name" with "Joao"
+And I fill the field "Cpf" with "123.123.123-12"
+And I select "Create Facilitator"
+Then I see successful message "Facilitator was successfully created."
+
+@coachings @gui @coaching8
 Scenario: Facilitator unregistered of an existing coaching
-Given I am at the "Coaching activities" page, under the sub-page "escola do Amapá"
-And the facilitator with name: "Ramon Saboya" And CPF: "321.654.789-78" is registered the coaching activity at "escola do Amapá"
-When I unregister the facilitator with name: "Ramon Saboya"
-And CPF: "321.654.789-78"
-Then I see a confirmation message
-And I see facilitator "Ramon Saboya" on coaching activity at "escola do Amapá" details
+Given I am at the "institutions" page
+And I select "New Institution"
+And I fill the field "Name" with "escola do amapa"
+And I fill the field "Cnpj" with "12093810"
+And I select "Create Institution"
+And I am at the "institutions/1/coaching_activities" page
+And I select "New Coaching Activity"
+And I select "date_start" "15" from "coaching_activity_date_start_3i", "April" from "coaching_activity_date_start_2i", "2017" from "coaching_activity_date_start_1i"
+And I select "date_finish" "19" from "coaching_activity_date_finish_3i", "April" from "coaching_activity_date_finish_2i", "2017" from "coaching_activity_date_finish_1i"
+And I select "Create Coaching activity"
+And I am at the "institutions/1/coaching_activities/1/facilitators" page
+And I select "New Facilitator"
+And I fill the field "Name" with "Joao"
+And I fill the field "Cpf" with "123.123.123-12"
+And I select "Create Facilitator"
+And I select "Back"
+When I delete facilitator with cpf "123.123.123-12"
+Then I see successful message "Facilitator was successfully destroyed."

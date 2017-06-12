@@ -2,30 +2,18 @@
 @ca = {}
 @fac = {}
 
-When(/^I select the partner institution "([^"]*)"$/) do |arg1|
-  
+Then(/^I see successful message "([^"]*)"$/) do |arg1|
+  expect(page). to have_content(arg1)
 end
 
-When(/^I fill the facilitators infos, name: "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+
+When(/^I select "([^"]*)" "([^"]*)" from "([^"]*)", "([^"]*)" from "([^"]*)", "([^"]*)" from "([^"]*)"$/) do |arg1, arg2, arg3, arg4, arg5, arg6, arg7|
+  page.find_by_id(arg1).select arg2, :from => arg3
+  page.find_by_id(arg1).select arg4, :from => arg5
+  page.find_by_id(arg1).select arg6, :from => arg7
 end
 
-When(/^CPF: "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
 
-When(/^I create a new coaching activity at "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^I see a confirmation message$/) do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^I see the coaching activity at "([^"]*)" details$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then(/^the facilitator with cpf "([^"]*)" is on the facilitators list$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I delete facilitator with cpf "([^"]*)"$/) do |arg1|
+  page.find('tr', text: arg1).click_link("Destroy")
 end
