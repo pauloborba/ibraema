@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = User.where(type: "Company").each{ |user| user.becomes(user.type.constantize) }
+    @companies = User.where(type: "Company").collect{ |user| user.becomes(user.type.constantize) }
   end
 
   # GET /companies/1

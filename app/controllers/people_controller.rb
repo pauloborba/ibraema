@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = User.where(type: "Person").each{ |user| user.becomes(user.type.constantize) }
+    @people = User.where(type: "Person").collect{ |user| user.becomes(user.type.constantize) }
   end
 
   # GET /people/1
