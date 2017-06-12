@@ -1,34 +1,6 @@
 @email = {}
 @article = {}
 
-#Scenario: Send email about notifications
-Given(/^I have an article "([^"]*)" registered in the system$/) do |title|
-  @article = {article: {title: title, text: "news"}}
-  post '/articles', @article
-  expect(Article.find_by(title: title)).not_to be_nil
-end
-
-When(/^I try to send an email with the subject "([^"]*)" and the message "([^"]*)"$/) do |subject, message|
-  @email = {email: {subject: subject, message: message}}
-  post '/emails', @email
-end
-
-Then(/^an email is sent to the donors with subject "([^"]*)" and the message "([^"]*)"$/) do |subject, message|
-  expect(Email.find_by(subject: subject)).not_to be_nil
-end
-
-Then(/^the article "([^"]*)" is marked as sent\.$/) do |title|
-  @article = Article.find_by(title: title)
-  @article.mark = true
-  @article.save
-  expect(Article.where(mark: true)).not_to be_empty
-end
-
-Then(/^the system will not send the email\.$/) do
-  @email = get '/emails'
-  !expect(@email).not_to be_empty
-end
-
 #Scenario: Send message
 Given(/^I wrote an email with subject "([^"]*)" and message "([^"]*)"$/) do |subject, message|
   @email = {email: {subject: subject, message: message}}
@@ -50,4 +22,9 @@ end
 
 Then(/^the message "([^"]*)" is registered on the system$/) do |subject|
   expect(Email.where(subject: subject)).not_to be_empty
+end
+
+Then(/^the system will not send the email\.$/) do
+  @email = get '/emails'
+  !expect(@email).not_to be_empty
 end
