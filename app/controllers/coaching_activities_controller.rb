@@ -34,7 +34,7 @@ class CoachingActivitiesController < ApplicationController
     respond_to do |format|
       if @coaching_activity.save
         format.html { redirect_to institution_coaching_activity_path(@institution, @coaching_activity), notice: 'Coaching activity was successfully created.' }
-        format.json { render :show, status: :created, location: @coaching_activity }
+        format.json { redirect_to institution_coaching_activity_path(@institution, @coaching_activity, format: :json) }
       else
         format.html { render :new }
         format.json { render json: @coaching_activity.errors, status: :unprocessable_entity }
@@ -49,7 +49,7 @@ class CoachingActivitiesController < ApplicationController
     respond_to do |format|
       if @coaching_activity.update(coaching_activity_params)
         format.html { redirect_to institution_coaching_activity_path(@institution, @coaching_activity), notice: 'Coaching activity was successfully updated.' }
-        format.json { render :show, status: :ok, location: @coaching_activity }
+        format.json { redirect_to institution_coaching_activity_path(@institution, @coaching_activity, format: :json) }
       else
         format.html { render :edit }
         format.json { render json: @coaching_activity.errors, status: :unprocessable_entity }

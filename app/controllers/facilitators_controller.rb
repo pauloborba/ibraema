@@ -43,7 +43,7 @@ class FacilitatorsController < ApplicationController
     respond_to do |format|
       if @facilitator.save
         format.html { redirect_to institution_coaching_activity_facilitator_path(@institution, @coaching_activity, @facilitator), notice: 'Facilitator was successfully created.' }
-        format.json { render :show, status: :created, location: @facilitator }
+        format.json { redirect_to institution_coaching_activity_facilitator_path(@institution, @coaching_activity, @facilitator, format: :json) }
       else
         format.html { render :new }
         format.json { render json: @facilitator.errors, status: :unprocessable_entity }
@@ -59,7 +59,7 @@ class FacilitatorsController < ApplicationController
     respond_to do |format|
       if @facilitator.update(facilitator_params)
         format.html { redirect_to institution_coaching_activity_facilitator_path(@institution, @coaching_activity, @facilitator), notice: 'Facilitator was successfully updated.' }
-        format.json { render :show, status: :ok, location: @facilitator }
+        format.json { redirect_to institution_coaching_activity_facilitator_path(@institution, @coaching_activity, @facilitator, format: :json) }
       else
         format.html { render :edit }
         format.json { render json: @facilitator.errors, status: :unprocessable_entity }
