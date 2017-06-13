@@ -22,9 +22,14 @@
           <a class="nav-item" href="/institutions">Institutions</a>
           <a class="nav-item" href="/people">People</a>
           <a class="nav-item" href="/users">Users</a>
+          <%= link_to 'logout', destroy_user_session_path, method: :delete %>
         </div>
       </div>
-      <div id="content"><%= yield %></div>
+      <div id="content">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+      </div>
       <div id="footer"></div>
     </div>
   </body>
