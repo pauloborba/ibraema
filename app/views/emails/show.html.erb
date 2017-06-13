@@ -15,5 +15,12 @@
   <%= @email.mark %>
 </p>
 
+<p>
+  <strong>Resent:</strong>
+  <%= @email.resent %>
+</p>
+
 <%= link_to 'Edit', edit_email_path(@email) %> |
+<%= link_to 'Delete', @email, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Resend', email_resend_path(:email_id => @email.id) %> |
 <%= link_to 'Back', emails_path %>

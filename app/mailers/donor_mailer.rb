@@ -3,6 +3,7 @@ class DonorMailer < ApplicationMailer
  
   def thanks_email (donor)
     @donor = donor
+   
     mail to: donor.email, subject: "Obrigado por nos ajudar a lutar contra o analfabetismo"
   end
 end

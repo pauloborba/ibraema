@@ -28,6 +28,12 @@ class DonationsController < ApplicationController
 
     respond_to do |format|
       if @donation.save
+        if (@donation.user.type == 'Company' && @donation.user.isSponsor)
+          SponsorMailer.thanks_email(@donation.user).deliver_later
+        else
+          DonorMailer.thanks_email(@donation.user).deliver_later
+        end
+          
         format.html { redirect_to @donation, notice: 'Donation was successfully created.' }
         format.json { render :show, status: :created, location: @donation }
       else
