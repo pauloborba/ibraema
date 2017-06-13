@@ -21,4 +21,5 @@
 </p>
 
 <%= link_to 'Edit', edit_email_path(@email) %> |
+<%= link_to 'Delete', @email, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', emails_path %>

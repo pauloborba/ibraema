@@ -6,23 +6,14 @@
   <thead>
     <tr>
       <th>Subject</th>
-      <th>Message</th>
-      <th>Mark</th>
-      <th>Resent</th>
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @emails.each do |email| %>
       <tr>
-        <td><%= email.subject %></td>
-        <td><%= email.message %></td>
-        <td><%= email.mark %></td>
-        <td><%= email.resent %></td>
-        <td><%= link_to 'Show', email %></td>
-        <td><%= link_to 'Edit', edit_email_path(email) %></td>
-        <td><%= link_to 'Destroy', email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to email.subject, email %></td>
       </tr>
     <% end %>
   </tbody>
