@@ -12,9 +12,10 @@ When(/^I select the "(.*)" option$/) do |option|
   click_on(option)
 end
 
-When(/^I enter an article with title "(.*)" with text "(.*)"$/) do |title,text|
+When(/^I enter an article with title "(.*)" with text "(.*)" and image path "(.*)"$/) do |title,text, img|
   fill_in('Title', with: title)
   fill_in('Text', with: text)
+  attach_file('article[img]', Rails.root + img)
   click_on('Create Article')
 end
 
@@ -33,4 +34,9 @@ end
 
 Then(/^I see a repeated article error message$/) do
   expect(page).to have_content("Title has already been taken")
+end
+
+#Scenario: View the correspondent image for article - GUI
+Then(/^I see a not\-image error message$/) do
+  expect(page).to have_content("Please, upload JPG, JPEG or PNG images only.")
 end
