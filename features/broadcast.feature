@@ -22,7 +22,13 @@ Given I wrote an email with subject "Obrigado" and message ""
 When I try to send the email "Obrigado" and message ""
 Then the system will not send the email.
 
-@gui @broadcast @broadcast4
+@controller @broadcast @broadcast4
+Scenario: Resend email
+Given I have an email with subject "Obrigado por lutar contra o analfabetismo" and message "Obrigado por se juntar ao time" registered in the system
+When I try to resend the email "Obrigado por lutar contra o analfabetismo" and message "Obrigado por se juntar ao time"
+Then the email is resent to the donors with subject "Obrigado por lutar contra o analfabetismo"
+
+@gui @broadcast @broadcast5
 Scenario: Send email (GUI)
 Given I am at the "emails" page
 When I select "New Email"
@@ -32,7 +38,7 @@ And I select "Create Email"
 Then I can see a successful message
 And I can see the message with subject "Obrigado por lutar contra o analfabetismo" in the "emails" page.
 
-@gui @broadcast @broadcast5
+@gui @broadcast @broadcast6
 Scenario: Send email without subject (GUI)
 Given I am at the "emails" page
 When I select "New Email"
@@ -41,7 +47,7 @@ And I fill the field "Message" with the text "Obrigado"
 And I select "Create Email"
 Then I can see an error message about the subject.
 
-@gui @broadcast @broadcast6
+@gui @broadcast @broadcast7
 Scenario: Send email without message (GUI)
 Given I am at the "emails" page
 When I select "New Email"
@@ -50,7 +56,7 @@ And I fill the field "Message" in blank ""
 And I select "Create Email"
 Then I can see an error message about the message.
 
-@gui @broadcast @broadcast7
+@gui @broadcast @broadcast8
 Scenario: Emails sent (GUI)
 Given the email with subject "Obrigado por lutar contra o analfabetismo" and message "Obrigado" was sent to users
 And the email with subject "Novas atividade realizadas" and message "Hoje realizamos uma nova atividade" was sent to users

@@ -71,8 +71,7 @@ class EmailsController < ApplicationController
     def email_params
       params.require(:email).permit(:subject, :message, :mark, :resent)
     end
-end
-
+    
   def resend
     @email = Email.find(params[:email_id])
 
@@ -84,3 +83,6 @@ end
       format.json { render :show, status: :ok, location: @email }
     end
   end
+  
+end
+

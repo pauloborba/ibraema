@@ -28,3 +28,20 @@ Then(/^the system will not send the email\.$/) do
   @email = get '/emails'
   !expect(@email).not_to be_empty
 end
+
+#Scenario: Resend email
+Given(/^I have an email with subject "([^"]*)" and message "([^"]*)" registered in the system$/) do |subject, message|
+  @email = {email: {subject: subject, message: message}}
+  post '/emails', @email
+  expect(Email.where(subject: subject)).not_to be_nil
+end
+
+When(/^I try to resend the email "([^"]*)" and message "([^"]*)"$/) do |subject, message|
+  @email = Email.find_by(subject: subject)
+  get email_resend_path(email_id: @email.id)
+end
+
+Then(/^the email is resent to the donors with subject "([^"]*)"$/) do |subject|
+  @email = Email.find_by(subject: subject)
+  expect(@email.resent).to eq(1)
+end
