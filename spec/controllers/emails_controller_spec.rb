@@ -17,11 +17,6 @@ require 'rails_helper'
 # is no simpler way to get a handle on the object needed for the example.
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
-#
-# Also compared to earlier versions of this generator, there are no longer any
-# expectations of assigns and templates rendered. These features have been
-# removed from Rails core in Rails 5, but can be added back in via the
-# `rails-controller-testing` gem.
 
 RSpec.describe EmailsController, type: :controller do
 
@@ -42,33 +37,33 @@ RSpec.describe EmailsController, type: :controller do
   let(:valid_session) { {} }
 
   describe "GET #index" do
-    it "returns a success response" do
+    it "assigns all emails as @emails" do
       email = Email.create! valid_attributes
       get :index, params: {}, session: valid_session
-      expect(response).to be_success
+      expect(assigns(:emails)).to eq([email])
     end
   end
 
   describe "GET #show" do
-    it "returns a success response" do
+    it "assigns the requested email as @email" do
       email = Email.create! valid_attributes
       get :show, params: {id: email.to_param}, session: valid_session
-      expect(response).to be_success
+      expect(assigns(:email)).to eq(email)
     end
   end
 
   describe "GET #new" do
-    it "returns a success response" do
+    it "assigns a new email as @email" do
       get :new, params: {}, session: valid_session
-      expect(response).to be_success
+      expect(assigns(:email)).to be_a_new(Email)
     end
   end
 
   describe "GET #edit" do
-    it "returns a success response" do
+    it "assigns the requested email as @email" do
       email = Email.create! valid_attributes
       get :edit, params: {id: email.to_param}, session: valid_session
-      expect(response).to be_success
+      expect(assigns(:email)).to eq(email)
     end
   end
 
@@ -80,6 +75,12 @@ RSpec.describe EmailsController, type: :controller do
         }.to change(Email, :count).by(1)
       end
 
+      it "assigns a newly created email as @email" do
+        post :create, params: {email: valid_attributes}, session: valid_session
+        expect(assigns(:email)).to be_a(Email)
+        expect(assigns(:email)).to be_persisted
+      end
+
       it "redirects to the created email" do
         post :create, params: {email: valid_attributes}, session: valid_session
         expect(response).to redirect_to(Email.last)
@@ -87,9 +88,14 @@ RSpec.describe EmailsController, type: :controller do
     end
 
     context "with invalid params" do
-      it "returns a success response (i.e. to display the 'new' template)" do
+      it "assigns a newly created but unsaved email as @email" do
         post :create, params: {email: invalid_attributes}, session: valid_session
-        expect(response).to be_success
+        expect(assigns(:email)).to be_a_new(Email)
+      end
+
+      it "re-renders the 'new' template" do
+        post :create, params: {email: invalid_attributes}, session: valid_session
+        expect(response).to render_template("new")
       end
     end
   end
@@ -107,6 +113,12 @@ RSpec.describe EmailsController, type: :controller do
         skip("Add assertions for updated state")
       end
 
+      it "assigns the requested email as @email" do
+        email = Email.create! valid_attributes
+        put :update, params: {id: email.to_param, email: valid_attributes}, session: valid_session
+        expect(assigns(:email)).to eq(email)
+      end
+
       it "redirects to the email" do
         email = Email.create! valid_attributes
         put :update, params: {id: email.to_param, email: valid_attributes}, session: valid_session
@@ -115,10 +127,16 @@ RSpec.describe EmailsController, type: :controller do
     end
 
     context "with invalid params" do
-      it "returns a success response (i.e. to display the 'edit' template)" do
+      it "assigns the email as @email" do
         email = Email.create! valid_attributes
         put :update, params: {id: email.to_param, email: invalid_attributes}, session: valid_session
-        expect(response).to be_success
+        expect(assigns(:email)).to eq(email)
+      end
+
+      it "re-renders the 'edit' template" do
+        email = Email.create! valid_attributes
+        put :update, params: {id: email.to_param, email: invalid_attributes}, session: valid_session
+        expect(response).to render_template("edit")
       end
     end
   end

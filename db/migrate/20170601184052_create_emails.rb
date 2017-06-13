@@ -4,7 +4,6 @@ class CreateEmails < ActiveRecord::Migration[5.0]
       t.string :subject
       t.text :message
       t.boolean :mark
-      t.integer :resent, default: 0
 
       t.timestamps
     end
