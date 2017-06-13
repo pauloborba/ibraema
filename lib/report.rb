@@ -46,4 +46,25 @@ module Report
     return data
   end
   
+  def self.coachingPdfMaker(name, list)
+    Prawn::Document.generate('public/' + name + '.pdf') do 
+      list.each do |coaching_activity|
+        coaching_activity.facilitators.each do |facilitator|
+          text 'Cpf: ' + facilitator.cpf.to_s + ' de nome: ' + facilitator.name.to_s
+        end
+      end
+    end
+  end
+  
+  def self.coachingPdfReader(name)
+    data = []
+    reader = PDF::Reader.new('public/' + name + '.pdf')
+    reader.pages.each do |page|
+      page.text.lines.each do |line|
+        data.push(line.split[1].to_s)
+      end
+    end
+    return data
+  end
+  
 end

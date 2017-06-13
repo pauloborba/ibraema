@@ -69,3 +69,23 @@ Then(/^the User "([^"]*)" is not in it$/) do |name|
     c = c + 1
   end
 end
+
+#Scenario 3
+When(/^I request the Coaching Activity report from "([^"]*)"$/) do |date|
+  start_date = TimeUtils.getStartDate(date)
+  end_date = TimeUtils.getEndDate(date)
+  @fileName = "coaching_activity-" + DateTime.now().to_s
+  @systemCoachings = CoachingActivity.all.select { |coaching| (coaching.date_start >= start_date && coaching.date_finish <= end_date) } 
+  Report.coachingPdfMaker(@fileName, @systemCoachings)
+end
+
+Then(/^I recieve a Coaching Activity report with data from "([^"]*)"$/) do |date|
+  pdfCoaching = Report.coachingPdfReader(@fileName)
+  c = 0
+  @systemCoachings.each do |coaching_activity|
+    coaching_activity.facilitators.each do |facilitator|
+      expect(facilitator.cpf.to_s).to eq(pdfCoaching[c].to_s)
+      c = c + 1
+    end  
+  end
+end

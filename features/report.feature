@@ -23,7 +23,7 @@ Scenario: Generate an Accounting report
   Then I recieve a Accounting report with data from "July 2016" to "September 2016"
   
 @controller @report2
-Scenario: Generate an Donators report
+Scenario: Generate a Donators report
   Given a Person with name "Luiz Henrique", cpf "164.630.470-58" and email "luiz@hotmail.com" is registered
   And a Person with name "Douglas Soares", cpf "771.951.430-07" and email "douglas@hotmail.com" is registered
   And a Person with name "Ramon Saboya", cpf "567.484.270-10" and email "ramon@hotmail.com" is registered
@@ -40,6 +40,12 @@ Scenario: Generate an Donators report
   And the User "Ramon Saboya" is not in it
   And the User "Delta Studios" is not in it
   
-  
-  
-  # nome email cpf endereco doador
+@controller @report3
+Scenario: Generate a Coaching Activity report
+  Given "Alumiar" with cnpj "31022371000106" is registered as a partner
+  And the coaching activity at "Alumiar" starting at "17/04/2017" and finishing at "21/04/2017" is registered on the system
+  And the facilitator with name "Roberto" and CPF "85481996448" is registered on the coaching
+  And the facilitator with name "Milton" and CPF "84786467790" is registered on the coaching
+  And the facilitator with name "Diana" and CPF "16256143493" is registered on the coaching
+  When I request the Coaching Activity report from "April 2017"
+  Then I recieve a Coaching Activity report with data from "April 2017"
