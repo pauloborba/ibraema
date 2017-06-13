@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :users
   resources :donations
   resources :emails
+  resources :articles
   root 'people#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

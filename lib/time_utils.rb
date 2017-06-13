@@ -2,6 +2,7 @@ require 'time'
 module TimeUtils
     
     def self.getDate(date)
+        puts date
         Time.strptime(date, '%m %Y')
     end
     
