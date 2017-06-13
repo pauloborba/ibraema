@@ -1,10 +1,10 @@
 #Scenario: Send message (GUI)
 Given(/^I am at the "([^"]*)" page$/) do |page|
-   visit '/' + page
+  visit '/' + page
 end
 
 When(/^I select "([^"]*)"$/) do |button|
-   click_on(button)
+  click_on(button)
 end
 
 When(/^I fill the field "([^"]*)" with "([^"]*)"$/) do |subject, subject_text|
@@ -36,4 +36,41 @@ end
 #Scenario: Send message without message (GUI)
 Then(/^I can see an error message about the message\.$/) do
   expect(page).to have_content("Message can't be blank")
+end
+
+#Scenario: Emails sent
+
+Given(/^I see the email with subject "([^"]*)" and message "([^"]*)" was sent to users$/) do |subject, message|
+  visit '/emails'
+  click_on('New Email')
+  fill_in("Subject", with: subject)
+  fill_in("Message", with: message)
+  click_on('Create Email')
+  expect(page).to have_content("Email was successfully created.")
+  visit '/emails'
+  expect(page).to have_content(subject)
+  
+end
+
+When(/^I go to the "([^"]*)" page$/) do |page1|
+  visit '/' + page1
+end
+
+Then(/^I can see a list with the subjects "([^"]*)" and "([^"]*)" at the "([^"]*)" page$/) do |subject1, subject2, page1|
+  visit '/' + page1
+  expect(page).to have_content(subject1)
+  expect(page).to have_content(subject2)
+end
+
+#Scenario: Resend Email (GUI)
+When(/^I click in the subject "([^"]*)"$/) do |subject|
+  click_on(subject)
+end
+
+When(/^I select the button "([^"]*)"$/) do |resend|
+  click_on(resend)
+end
+
+Then(/^I can see a successful message about resent$/) do
+  expect(page).to have_content("Email was successfully resent.")
 end

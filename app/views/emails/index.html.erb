@@ -13,9 +13,7 @@
   <tbody>
     <% @emails.each do |email| %>
       <tr>
-        <td><%= email.subject %></td>
-        <td><%= link_to 'Show', email %></td>
-        <td><%= link_to 'Destroy', email, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to email.subject, email %></td>
       </tr>
     <% end %>
   </tbody>

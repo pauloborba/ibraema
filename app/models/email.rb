@@ -10,4 +10,8 @@ class Email < ApplicationRecord
     def check_blank_subject
         return false if self.subject.blank? == true
     end
+    
+    def count_resend
+        self.resent = self.resent + 1
+    end
 end

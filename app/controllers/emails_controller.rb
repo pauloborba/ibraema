@@ -37,6 +37,18 @@ class EmailsController < ApplicationController
       end
     end
   end
+  
+  def resend
+    @email = Email.find(params[:email_id])
+
+    respond_to do |format|
+      BroadcastMailer.broadcast_email(@email).deliver_later
+      @email.count_resend()
+      @email.save
+      format.html { redirect_to @email, notice: 'Email was successfully resent.' }
+      format.json { render :show, status: :ok, location: @email }
+    end
+  end
 
   # PATCH/PUT /emails/1
   # PATCH/PUT /emails/1.json
@@ -70,6 +82,6 @@ class EmailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def email_params
-      params.require(:email).permit(:subject, :message, :mark)
+      params.require(:email).permit(:subject, :message, :mark, :resent)
     end
 end
