@@ -12,20 +12,19 @@ Feature: Newsletter management
 
   @controller @newsletter @newsletter2
   Scenario: Insert a non-image file as for article
-    Given I create an article with the title "Treinamento em escola do Amapá"
-    And I choose an image "Treinamento.txt" for the article with title "Treinamento em escola do Amapá"
-    When I try to register the article with the title "Treinamento em escola do Amapá"
-    Then the article with the title "Treinamento em escola do Amapá" is not registered in the system
+    Given I create an article with image "Treinamento.txt" and title "Treinamento em escola de Pernambuco"
+    When I try to register the article with the title "Treinamento em escola de Pernambuco"
+    Then the article with the title "Treinamento em escola de Pernambuco" is not registered in the system
 
   @controller @newsletter @newsletter3
   Scenario: Insert a duplicate article
     Given there is an article with the title "Treinamento em escola do Amapá" registered in the system
     When I try to register the article with the title "Treinamento em escola do Amapá"
-    Then the article with the title "Treinamento em escola do Amapá" is not registered in the system
+    Then the article with the title "Treinamento em escola do Amapá" is not registered in the system twice
 
   @controller @newsletter @newsletter4
   Scenario: Insert an article without a title
-    Given I create an article with the title ""
+    Given I create an article without a title
     When I try to register the article with the title ""
     Then the article with the title "" is not registered in the system
 
