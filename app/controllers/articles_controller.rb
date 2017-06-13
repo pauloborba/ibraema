@@ -44,10 +44,12 @@ class ArticlesController < ApplicationController
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
-        path = File.join(Rails.root,
-          "app/assets/images",img_path)
-        File.open(path, "wb") do |f|
-          f.write(img.read)
+        if(img_path != '')
+          path = File.join(Rails.root,
+            "app/assets/images",img_path)
+            File.open(path, "wb") do |f|
+            f.write(img.read)
+          end
         end
       else
         format.html { render :new }
@@ -74,7 +76,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1.json
   def destroy
     if @article.img_path != ''
-      File.delete('app/assets/images/' + @article.img_path)
+      File.delete('app/assets/images/' + @article.img_path) if File.exist?('app/assets/images/' + @article.img_path)
     end
     @article.destroy
     respond_to do |format|

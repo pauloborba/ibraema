@@ -11,11 +11,11 @@ Feature: Newsletter management
     Then the article with the title "Treinamento em escola do Amapá" is registered in the system
 
   @controller @newsletter @newsletter2
-    Scenario: Select a image for article
-    Given I choose an image "Treinamento.jpeg" for the article with title "Treinamento em escola do Amapá"
-    And the image "Treinamento.jpeg" has extension "jpeg", "jpg" or "png"
-    When I register the image "Treinamento.jpeg" for the article with title "Treinamento em escola do Amapá"
-    Then the article with the title "Treinamento em escola do Amapá" has the image "Treinamento.jpeg"
+  Scenario: Insert a non-image file as for article
+    Given I create an article with the title "Treinamento em escola do Amapá"
+    And I choose an image "Treinamento.txt" for the article with title "Treinamento em escola do Amapá"
+    When I try to register the article with the title "Treinamento em escola do Amapá"
+    Then the article with the title "Treinamento em escola do Amapá" is not registered in the system
 
   @controller @newsletter @newsletter3
   Scenario: Insert a duplicate article
