@@ -25,10 +25,10 @@ end
 
 When(/^A donation of "([^"]*)" reais from person "([^"]*)" is confirmed by payment gateway$/) do |amount, name|
   user = getUser(name)
-  
+
   donation = { donation: { amount: amount, donation_date: DateTime.now, user_id: user.id } }
 
-  post '/donations', donation
+  Capybara.current_session.driver.post '/donations', donation
 end
 
 Then(/^Person "([^"]*)" is marked as a donor$/) do |name|
