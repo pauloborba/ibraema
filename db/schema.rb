@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170608131718) do
 
   create_table "coaching_activities", force: :cascade do |t|
@@ -42,11 +41,9 @@ ActiveRecord::Schema.define(version: 20170608131718) do
     t.string   "subject"
     t.text     "message"
     t.boolean  "mark"
-    t.integer  "resent",     default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
 
   create_table "facilitators", force: :cascade do |t|
     t.string   "name"
@@ -64,12 +61,11 @@ ActiveRecord::Schema.define(version: 20170608131718) do
     t.datetime "updated_at", null: false
   end
 
-
-  create_table "users", force: :cascade do |t|
     t.string   "identifier"
     t.string   "email"
     t.string   "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 end
