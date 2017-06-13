@@ -64,10 +64,30 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
+    img = params[:article][:img]
+    if !params[:article][:img_path].to_s.empty?
+      img_path = params[:article][:img_path]
+    elsif img
+      img_path = img.original_filename
+    else
+      img_path = ''
+    end
+    parameters = {
+      "title" => article_params[:title],
+      "text" => article_params[:text],
+      "img_path": img_path
+    };
     respond_to do |format|
-      if @article.update(article_params)
+      if @article.update(parameters)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
+        if(img_path != '')
+          path = File.join(Rails.root,
+            "app/assets/images",img_path)
+            File.open(path, "wb") do |f|
+            f.write(img.read)
+          end
+        end
       else
         format.html { render :edit }
         format.json { render json: @article.errors, status: :unprocessable_entity }
