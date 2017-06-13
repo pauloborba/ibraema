@@ -26,20 +26,21 @@ class ArticlesController < ApplicationController
   def create
 
     img = params[:article][:img]
-    path = File.join(Rails.root,
-      "app/assets/images",img.original_filename)
-
-    # escreve o arquivo no local designado
-    File.open(path, "wb") do |f|
-      f.write(img.read)
+    if img
+      img_path = img.original_filename;
+      path = File.join(Rails.root,
+        "app/assets/images",img_path)
+      File.open(path, "wb") do |f|
+        f.write(img.read)
+      end
+    else
+      img_path = ''
     end
-
-    article_params[:img] = path;
 
     parames = {
       "title" => article_params[:title],
       "text" => article_params[:text],
-      "img_path": img.original_filename
+      "img_path": img_path
     };
 
     @article = Article.new(parames)
@@ -73,11 +74,14 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
+    File.delete('app/assets/images/' + @article.img_path) if File.exist?('app/assets/images/' + @article.img_path)
     @article.destroy
     respond_to do |format|
       format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
       format.json { head :no_content }
     end
+
+
   end
 
   private
