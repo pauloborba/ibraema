@@ -5,9 +5,16 @@ end
 
 # Steps definitions
 Given(/^Person with name "([^"]*)", "([^"]*)" and "([^"]*)" is registered in the system$/) do |name, cpf, email|
-  person = { user: { name: name, identifier: cpf, email: email, password: 'admin', password_confirmation: 'admin', type: 'Person' } }
+  visit '/users/sign_up'
   
-  p post '/users', person
+  fill_in("Name", with: name)
+  fill_in("Identifier", with: cpf)
+  fill_in("Email", with: email)
+  fill_in("Password", with: 'password')
+  fill_in("Password confirmation", with: 'password')
+  select("Person", :from => "Type")
+  
+  click_on("Sign up")
   
   expect(getUser(name)).not_to be nil
 end
@@ -20,7 +27,7 @@ When(/^A donation of "([^"]*)" reais from person "([^"]*)" is confirmed by payme
   user = getUser(name)
   
   donation = { donation: { amount: amount, donation_date: DateTime.now, user_id: user.id } }
-  
+
   post '/donations', donation
 end
 
