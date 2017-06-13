@@ -24,7 +24,25 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+
+    img = params[:article][:img]
+    path = File.join(Rails.root,
+      "app/assets/images",img.original_filename)
+
+    # escreve o arquivo no local designado
+    File.open(path, "wb") do |f|
+      f.write(img.read)
+    end
+
+    article_params[:img] = path;
+
+    parames = {
+      "title" => article_params[:title],
+      "text" => article_params[:text],
+      "img_path": img.original_filename
+    };
+
+    @article = Article.new(parames)
 
 
     respond_to do |format|
@@ -70,6 +88,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :text)
+      params.require(:article).permit(:title, :text, :img)
     end
 end
