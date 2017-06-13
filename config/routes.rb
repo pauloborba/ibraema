@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/institutions/report' => 'institutions#createReport'
+  post '/institutions/downloadReport' => 'institutions#downloadReport'
   resources :institutions do
     resources :coaching_activities do
       resources :facilitators

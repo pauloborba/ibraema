@@ -1,4 +1,5 @@
 require "prawn"
+require "time_utils"
 module Report
    
   def self.accountingPdfMaker(name, list)
@@ -46,13 +47,18 @@ module Report
     return data
   end
   
-  def self.coachingPdfMaker(name, list)
+  def self.coachingPdfMaker(name, list, date)
     Prawn::Document.generate('public/' + name + '.pdf') do 
-      list.each do |coaching_activity|
-        coaching_activity.facilitators.each do |facilitator|
-          text 'Cpf: ' + facilitator.cpf.to_s + ' de nome: ' + facilitator.name.to_s
+      list.each do |institution|
+      text 'CNPJ: ' + institution.cnpj.to_s + ' Nome: ' + institution.name.to_s
+      coaching_activities = institution.coaching_activities.select{ |coaching_activity| (TimeUtils.getDate(date) >= coaching_activity.date_start && TimeUtils.getEndDate2(date) <= coaching_activity.date_finish) }
+      coaching_activities.each do |coaching_activity|
+        text 'Data: ' + coaching_activity.date_start + ' - ' + coaching_activity.date_finish 
+          coaching_activity.facilitators.each do |facilitator|
+            text 'Cpf: ' + facilitator.cpf.to_s + ' de nome: ' + facilitator.name.to_s
+          end
         end
-      end
+      end 
     end
   end
   

@@ -72,18 +72,18 @@ end
 
 #Scenario 3
 When(/^I request the Coaching Activity report from "([^"]*)"$/) do |date|
-  start_date = TimeUtils.getStartDate(date)
-  end_date = TimeUtils.getEndDate(date)
   @fileName = "coaching_activity-" + DateTime.now().to_s
-  @systemCoachings = CoachingActivity.all.select { |coaching| (coaching.date_start >= start_date && coaching.date_finish <= end_date) } 
-  Report.coachingPdfMaker(@fileName, @systemCoachings)
+  @systemCoachings = Institution.all 
+  Report.coachingPdfMaker(@fileName, @systemCoachings, date)
 end
 
 Then(/^I recieve a Coaching Activity report with data from "([^"]*)"$/) do |date|
   pdfCoaching = Report.coachingPdfReader(@fileName)
   c = 0
-  @systemCoachings.each do |coaching_activity|
-    coaching_activity.facilitators.each do |facilitator|
+  @systemCoachings.each do |institution|
+    expect(institution.cnpj.to_s).to eq(pdfCoaching[c].to_s)
+    coaching_activities = institution.coaching_activities.select{ |coaching_activity| (TimeUtils.getStartDate(date) >= coaching_activity.date_start && TimeUtils.getEndDate(date) <= coaching_activity.date_finish) }
+    coaching_activities.each do |facilitator|
       expect(facilitator.cpf.to_s).to eq(pdfCoaching[c].to_s)
       c = c + 1
     end  

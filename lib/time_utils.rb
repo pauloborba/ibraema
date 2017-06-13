@@ -1,12 +1,20 @@
 require 'time'
 module TimeUtils
     
+    def self.getDate(date)
+        Time.strptime(date, '%m %Y')
+    end
+    
     def self.getStartDate(date)
         Time.strptime(date, '%B %Y')
     end
     
     def self.getEndDate(date)
         Time.strptime(date, '%B %Y').next_month - 1
+    end
+    
+    def self.getEndDate2(date)
+        Time.strptime(date, '%m %Y').next_month - 1
     end
     
     def self.fullDateToTimestamp(date)

@@ -1,5 +1,11 @@
 class InstitutionsController < ApplicationController
+  require "report"
+  
   before_action :set_institution, only: [:show, :edit, :update, :destroy]
+  
+  @institution_downloadReport_path = {
+    
+  };
 
   # GET /institutions
   # GET /institutions.json
@@ -60,7 +66,14 @@ class InstitutionsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def downloadReport
+    name = "coaching_activity-" + DateTime.now().to_s
+    
+    Report.coachingPdfMaker(name, Institution.all, params[:report]["date(2i)"] + " " + params[:report]["date(1i)"])
+    send_file Rails.root.join('public', name << '.pdf'), :type=>"application/pdf", :x_sendfile=>true
+  end
+    
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_institution
@@ -71,4 +84,5 @@ class InstitutionsController < ApplicationController
     def institution_params
       params.require(:institution).permit(:name, :cnpj)
     end
+    
 end
