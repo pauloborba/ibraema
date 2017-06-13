@@ -9,4 +9,4 @@ before_install:
   - rake db:create
   - rake db:migrate
 
-script: cucumber -t ~@skip
+script: rake cucumber

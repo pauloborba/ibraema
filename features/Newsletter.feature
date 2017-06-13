@@ -37,7 +37,7 @@ Feature: Newsletter management
 
   @gui @newsletter @newsletter6
   Scenario: New article inserted - GUI
-    Given I am at the "articles" page
+    Given I'm on the "articles" page
     And The article with title "Treinamento em escola do Amapá" does not appear in the articles list
     When I select the "New Article" option
     And I enter an article with title "Treinamento em escola do Amapá" with text "Nossa missão vem sendo revelada um sucesso" and image path "test/test.jpeg"
@@ -45,7 +45,7 @@ Feature: Newsletter management
 
   @gui @newsletter @newsletter7
   Scenario: Insert a duplicate article - GUI
-    Given I am at the "articles" page
+    Given I'm on the "articles" page
     And The article with title "Analfabetismo no Brasil reduz em 30% em um ano" appears in the articles list
     When I select the "New Article" option
     And I enter an article with title "Analfabetismo no Brasil reduz em 30% em um ano" with text "Nossa missão vem sendo revelada um sucesso" and image path "test/test.jpeg"
@@ -53,7 +53,7 @@ Feature: Newsletter management
 
   @gui @newsletter @newsletter8
   Scenario: Submit a non-image file for article - GUI
-    Given I am at the "articles" page
+    Given I'm on the "articles" page
     When I select the "New Article" option
     And I enter an article with title "Analfabetismo no Brasil reduz em 30% em um ano" with text "Nossa missão vem sendo revelada um sucesso" and image path "test/test.txt"
     Then I see a not-image error message
