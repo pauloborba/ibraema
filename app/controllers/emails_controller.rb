@@ -36,6 +36,18 @@ class EmailsController < ApplicationController
       end
     end
   end
+  
+  def resend
+    @email = Email.find(params[:email_id])
+
+    respond_to do |format|
+      BroadcastMailer.broadcast_email(@email).deliver_later
+      @email.count_resend()
+      @email.save
+      format.html { redirect_to @email, notice: 'Email was successfully resent.' }
+      format.json { render :show, status: :ok, location: @email }
+    end
+  end
 
   # PATCH/PUT /emails/1
   # PATCH/PUT /emails/1.json
@@ -71,18 +83,4 @@ class EmailsController < ApplicationController
     def email_params
       params.require(:email).permit(:subject, :message, :mark, :resent)
     end
-    
-  def resend
-    @email = Email.find(params[:email_id])
-
-    respond_to do |format|
-      BroadcastMailer.broadcast_email(@email).deliver_later
-      @email.count_resend()
-      @email.save
-      format.html { redirect_to @email, notice: 'Email was successfully resent.' }
-      format.json { render :show, status: :ok, location: @email }
-    end
-  end
-  
 end
-

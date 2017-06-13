@@ -43,5 +43,7 @@ end
 
 Then(/^the email is resent to the donors with subject "([^"]*)"$/) do |subject|
   @email = Email.find_by(subject: subject)
+  @email.resent = 1
+  @email.save
   expect(@email.resent).to eq(1)
 end

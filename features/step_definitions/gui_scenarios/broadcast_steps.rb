@@ -58,3 +58,16 @@ Then(/^I can see a list with the subjects "([^"]*)" and "([^"]*)"$/) do |subject
   expect(page).to have_content(subject1)
   expect(page).to have_content(subject2)
 end
+
+#Scenario: Resend Email (GUI)
+When(/^I click in the subject "([^"]*)"$/) do |subject|
+  click_on(subject)
+end
+
+When(/^I select the button "([^"]*)"$/) do |resend|
+  click_on(resend)
+end
+
+Then(/^I can see a successful message about resent$/) do
+  expect(page).to have_content("Email was successfully resent.")
+end
