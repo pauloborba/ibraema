@@ -14,5 +14,4 @@ class Email < ApplicationRecord
     def count_resend
         self.resent = self.resent + 1
     end
-    
 end
