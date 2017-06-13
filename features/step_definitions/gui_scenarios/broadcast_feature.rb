@@ -48,6 +48,7 @@ Given(/^I see the email with subject "([^"]*)" and message "([^"]*)" was sent to
   click_on('Create Email')
   expect(page).to have_content("Email was successfully created.")
   visit '/emails'
+  expect(page).to have_content(subject)
   
 end
 
