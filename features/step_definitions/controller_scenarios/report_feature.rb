@@ -1,5 +1,5 @@
-require_relative '/home/ubuntu/workspace/lib/report.rb'
-require_relative '/home/ubuntu/workspace/lib/time_utils.rb'
+require_relative Rails.root.join('lib/report.rb')
+require_relative Rails.root.join('lib/time_utils.rb')
 
 #Scenario 1
 Given(/^The user "([^"]*)" is registered in the system$/) do |name|
@@ -17,7 +17,7 @@ When(/^I request the Accounting report from "([^"]*)" to "([^"]*)"$/) do |start_
   start_date = TimeUtils.getStartDate(start_date)
   end_date = TimeUtils.getEndDate(end_date)
   @fileName = "accounting-" + DateTime.now().to_s
-  @systemDonations = Donation.all.select { |donation| (donation.donation_date >= start_date && donation.donation_date <= end_date) } 
+  @systemDonations = Donation.all.select { |donation| (donation.donation_date >= start_date && donation.donation_date <= end_date) }
   Report.accountingPdfMaker(@fileName, @systemDonations)
 end
 

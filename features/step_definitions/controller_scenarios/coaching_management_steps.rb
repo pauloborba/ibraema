@@ -1,4 +1,4 @@
-require_relative '/home/rsg3/Documents/workspace/ibraema/lib/time_utils.rb'
+require_relative Rails.root.join('lib/time_utils')
 @inst = {}
 @ca = {}
 @fac = {}
