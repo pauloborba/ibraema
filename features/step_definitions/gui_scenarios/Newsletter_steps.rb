@@ -1,6 +1,6 @@
 # GUI SCENARIOS
 #Scenario: New article inserted - GUI
-Given(/^I am at the "(.*)" page$/) do |page|
+Given(/^I'm on the "(.*)" page$/) do |page|
   visit '/' + page
 end
 

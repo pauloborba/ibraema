@@ -45,6 +45,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
+        NewsletterMailer.article_email(@article).deliver_later
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
         if(img_path != '')
