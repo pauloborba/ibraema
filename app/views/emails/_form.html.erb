@@ -20,7 +20,17 @@
     <%= f.label :message %>
     <%= f.text_area :message %>
   </div>
-  
+
+  <div class="field">
+    <%= f.label :mark %>
+    <%= f.check_box :mark %>
+  </div>
+
+  <div class="field">
+    <%= f.label :resent %>
+    <%= f.number_field :resent %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

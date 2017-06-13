@@ -5,7 +5,8 @@ RSpec.describe "emails/show", type: :view do
     @email = assign(:email, Email.create!(
       :subject => "Subject",
       :message => "MyText",
-      :mark => false
+      :mark => false,
+      :resent => 2
     ))
   end
 
@@ -14,5 +15,6 @@ RSpec.describe "emails/show", type: :view do
     expect(rendered).to match(/Subject/)
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(/false/)
+    expect(rendered).to match(/2/)
   end
 end

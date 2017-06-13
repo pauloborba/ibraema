@@ -28,7 +28,6 @@ class EmailsController < ApplicationController
 
     respond_to do |format|
       if @email.save
-        BroadcastMailer.broadcast_email(@email).deliver_later
         format.html { redirect_to @email, notice: 'Email was successfully created.' }
         format.json { render :show, status: :created, location: @email }
       else
@@ -70,6 +69,6 @@ class EmailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def email_params
-      params.require(:email).permit(:subject, :message, :mark)
+      params.require(:email).permit(:subject, :message, :mark, :resent)
     end
 end

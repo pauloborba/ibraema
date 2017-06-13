@@ -5,7 +5,8 @@ RSpec.describe "emails/new", type: :view do
     assign(:email, Email.new(
       :subject => "MyString",
       :message => "MyText",
-      :mark => false
+      :mark => false,
+      :resent => 1
     ))
   end
 
@@ -19,6 +20,8 @@ RSpec.describe "emails/new", type: :view do
       assert_select "textarea#email_message[name=?]", "email[message]"
 
       assert_select "input#email_mark[name=?]", "email[mark]"
+
+      assert_select "input#email_resent[name=?]", "email[resent]"
     end
   end
 end
