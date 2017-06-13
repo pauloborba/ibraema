@@ -1,6 +1,6 @@
 Feature: Media system
 As A registered facilitator
-I want to books from the coaching
+I want to access books from the coaching
 So that I can review and study concepts taught by the organization
 
 @controller @media @media1
