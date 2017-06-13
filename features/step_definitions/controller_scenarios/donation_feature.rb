@@ -5,9 +5,9 @@ end
 
 # Steps definitions
 Given(/^Person with name "([^"]*)", "([^"]*)" and "([^"]*)" is registered in the system$/) do |name, cpf, email|
-  person = { user: { name: name, identifier: cpf, email: email } }
+  person = { user: { name: name, identifier: cpf, email: email, password: 'admin', password_confirmation: 'admin', type: 'Person' } }
   
-  post '/users', person
+  p post '/users', person
   
   expect(getUser(name)).not_to be nil
 end
