@@ -26,7 +26,8 @@ class ArticlesController < ApplicationController
   def create
 
     img = params[:article][:img]
-    if params[:article][:img_path]
+
+    if !params[:article][:img_path].to_s.empty?
       img_path = params[:article][:img_path]
     elsif img
       img_path = img.original_filename

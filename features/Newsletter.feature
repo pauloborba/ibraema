@@ -11,7 +11,7 @@ Feature: Newsletter management
     Then the article with the title "Treinamento em escola do Amapá" is registered in the system
 
   @controller @newsletter @newsletter2
-  Scenario: Insert a non-image file as for article
+  Scenario: Submit a non-image file for article
     Given I create an article with image "Treinamento.txt" and title "Treinamento em escola de Pernambuco"
     When I try to register the article with the title "Treinamento em escola de Pernambuco"
     Then the article with the title "Treinamento em escola de Pernambuco" is not registered in the system
@@ -40,7 +40,7 @@ Feature: Newsletter management
     Given I am at the "articles" page
     And The article with title "Treinamento em escola do Amapá" does not appear in the articles list
     When I select the "New Article" option
-    And I enter an article with title "Treinamento em escola do Amapá" with text "Novo treinamento realizado em escola do Amapá foi um sucesso"
+    And I enter an article with title "Treinamento em escola do Amapá" with text "Nossa missão vem sendo revelada um sucesso" and image path "test/test.jpeg"
     Then I see a confirmation message
 
   @gui @newsletter @newsletter7
@@ -48,5 +48,12 @@ Feature: Newsletter management
     Given I am at the "articles" page
     And The article with title "Analfabetismo no Brasil reduz em 30% em um ano" appears in the articles list
     When I select the "New Article" option
-    And I enter an article with title "Analfabetismo no Brasil reduz em 30% em um ano" with text "Nossa missão vem sendo revelada um sucesso"
+    And I enter an article with title "Analfabetismo no Brasil reduz em 30% em um ano" with text "Nossa missão vem sendo revelada um sucesso" and image path "test/test.jpeg"
     Then I see a repeated article error message
+
+  @gui @newsletter @newsletter8
+  Scenario: Submit a non-image file for article - GUI
+    Given I am at the "articles" page
+    When I select the "New Article" option
+    And I enter an article with title "Analfabetismo no Brasil reduz em 30% em um ano" with text "Nossa missão vem sendo revelada um sucesso" and image path "test/test.txt"
+    Then I see a not-image error message
