@@ -56,9 +56,6 @@ When(/^I go to the "([^"]*)" page$/) do |page1|
   visit '/' + page1
 end
 
-Then(/^I can see a list with the subjects "([^"]*)" and "([^"]*)"$/) do |subject1, subject2|
-  
-end
 Then(/^I can see a list with the subjects "([^"]*)" and "([^"]*)" at the "([^"]*)" page$/) do |subject1, subject2, page1|
   visit '/' + page1
   expect(page).to have_content(subject1)
