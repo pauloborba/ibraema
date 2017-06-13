@@ -42,19 +42,23 @@ Feature: Donation system
       | Google   | 32.659.489/4697-21 | social@google.com   | 16000.00 | marked           | Gold sponsor   |
   
   @gui @donation3
-  Scenario Outline: Person created is visible under the User index
-    Given I am at the "<FIRST_PAGE>" page
-    When I select "New <TYPE>"
+  Scenario Outline: Person/Company created is visible in appropriate view and in User view
+    Given I am at the root page
+    And I am not logged in
+    When I select "Sign up"
     And I fill the field "Name" with the text "<NAME>"
-    And I fill the field "<FIRST_ID_TYPE>" with the text "<IDENTIFIER>"
+    And I fill the field "Identifier" with the text "<IDENTIFIER>"
     And I fill the field "Email" with the text "<EMAIL>"
-    And I select "Create <TYPE>"
-    And I go to the "<SECOND_PAGE>" page
-    Then I <VISIBILITY> see the user with name "<NAME>", <SECOND_ID_TYPE> "<IDENTIFIER>" and email "<EMAIL>"
+    And I fill the field "Password" with the text "<PASSWORD>"
+    And I fill the field "Password confirmation" with the text "<PASSWORD>"
+    And I select the option "<TYPE>" in select "Type"
+    And I select "Sign up"
+    And I go to the "<CONTROLLER>" page
+    Then I <VISIBILITY> see the person with name "<NAME>", identifier "<IDENTIFIER>" and email "<EMAIL>"
     
     Examples:
-      | FIRST_PAGE | SECOND_PAGE | TYPE    | NAME                | FIRST_ID_TYPE | SECOND_ID_TYPE | IDENTIFIER         | EMAIL             | VISIBILITY |
-      | people     | users       | Person  | Douglas Soares Lins | CPF           | identifier     | 105.473.572-64     | dsl@cin.ufpe.br   | can        |
-      | companies  | users       | Company | Mr. Mix             | CNPJ          | identifier     | 65.492.248/6473-05 | mrmix@gmail.com   | can        |
-      | people     | companies   | Person  | João Filipe Moura   | CPF           | CNPJ           | 743.762.732-17     | jfmrm@cin.ufpe.br | can not    |
-      | companies  | people      | Company | Fiat                | CNPJ          | CPF            | 95.000.498/2167-60 | fiat@fiat.com.br  | can not    |
+      | NAME | IDENTIFIER | EMAIL | PASSWORD | TYPE | CONTROLLER | VISIBILITY |
+      | Douglas Soares Lins | 105.473.572-64 | dsl@cin.ufpe.br | mypassword | Person | users | can |
+      | Mr. Mix | 65.492.248/6473-05 | mrmix@gmail.com | password | Company | users | can |
+      | João Filipe Moura | 743.762.732-17 | jfmrm@cin.ufpe.br | thisisthepass | Person | companies | can not |
+      | Fiat | 95.000.498/2167-60 | fiat@fiat.com.br | hellofiat | Company | people | can not |

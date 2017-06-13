@@ -5,16 +5,9 @@ end
 
 # Steps definitions
 Given(/^Person with name "([^"]*)", "([^"]*)" and "([^"]*)" is registered in the system$/) do |name, cpf, email|
-  visit '/users/sign_up'
-  
-  fill_in("Name", with: name)
-  fill_in("Identifier", with: cpf)
-  fill_in("Email", with: email)
-  fill_in("Password", with: 'password')
-  fill_in("Password confirmation", with: 'password')
-  select("Person", :from => "Type")
-  
-  click_on("Sign up")
+  user = { user: { name: name, identifier: cpf, email: email, password: 'password', "user[password_confirmation]": 'password '} }
+
+  Capybara.current_session.driver.post '/users', user
   
   expect(getUser(name)).not_to be nil
 end
@@ -36,9 +29,9 @@ Then(/^Person "([^"]*)" is marked as a donor$/) do |name|
 end
 
 Given(/^Company with name "([^"]*)", "([^"]*)" and "([^"]*)" is registered in the system$/) do |name, cnpj, email|
-  company = { user: { name: name, identifier: cnpj, email: email } }
-  
-  post '/users', company
+  user = { user: { name: name, identifier: cnpj, email: email, password: 'password', "user[password_confirmation]": 'password '} }
+
+  Capybara.current_session.driver.post '/users', user
   
   expect(getUser(name)).not_to be nil
 end
@@ -52,7 +45,7 @@ When(/^A donation of "([^"]*)" reais from company "([^"]*)" is confirmed by paym
   
   donation = { donation: { amount: amount, donation_date: DateTime.now, user_id: company.id } }
   
-  post '/donations', donation
+  Capybara.current_session.driver.post '/donations', donation
 end
 
 Then(/^Company "([^"]*)" is still not marked as a sponsor$/) do |name|

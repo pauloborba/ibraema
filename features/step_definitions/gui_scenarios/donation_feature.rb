@@ -1,30 +1,30 @@
-# Helper methods
-def searchTable(name, identifier, email, options = {})
-  row = page.find('tbody').find_all('tr').select{ |rows| rows.find_all('td')[0].text.to_s == name }[0]
-  
-  if(options[:not]) then
-    expect(row).to be nil
-  else
-    expect(row.find_all('td')[0].text).to eq(name)
-    expect(row.find_all('td')[1].text).to eq(identifier)
-    expect(row.find_all('td')[2].text).to eq(email)
-  end
+Given(/^I am at the root page$/) do
+  visit '/'
 end
-  
 
-# Steps definitions
+Given(/^I am not logged in$/) do
+  expect(page).to have_content("You need to sign in or sign up before continuing.")
+end
+
+When(/^I select the option "([^"]*)" in select "([^"]*)"$/) do |option, group|
+  select(option, :from => group)
+end
+
 When(/^I go to the "([^"]*)" page$/) do |page|
   visit '/' + page
 end
 
-Then(/^I can see the user with name "([^"]*)", identifier "([^"]*)" and email "([^"]*)"$/) do |name, identifier, email|
-  searchTable(name, identifier, email)
+Then(/^I can see the person with name "([^"]*)", identifier "([^"]*)" and email "([^"]*)"$/) do |name, cpf, email|
+  row = page.find('tbody').find_all('tr').select{ |rows| rows.find_all('td')[0].text == name }[0]
+  columns = row.find_all('td');
+
+  expect(columns[0].text).to eq(name)
+  expect(columns[1].text).to eq(cpf)
+  expect(columns[2].text).to eq(email)
 end
 
-Then(/^I can not see the user with name "([^"]*)", CPF "([^"]*)" and email "([^"]*)"$/) do |name, cpf, email|
-  searchTable(name, cpf, email, :not => true)
-end
-
-Then(/^I can not see the user with name "([^"]*)", CNPJ "([^"]*)" and email "([^"]*)"$/) do |name, cnpj, email|
-  searchTable(name, cnpj, email, :not => true)
+Then(/^I can not see the person with name "([^"]*)", identifier "([^"]*)" and email "([^"]*)"$/) do |arg1, arg2, arg3|
+  row = page.find('tbody').find_all('tr').select{ |rows| rows.find_all('td')[0].text == name }[0]
+  
+  expect(row).to be nil
 end
