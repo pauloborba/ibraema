@@ -40,13 +40,14 @@ end
 
 #Scenario: Emails sent
 
-Given(/^the email with subject "([^"]*)" and message "([^"]*)" was sent to users$/) do |subject, message|
+Given(/^I see the email with subject "([^"]*)" and message "([^"]*)" was sent to users$/) do |subject, message|
   visit '/emails'
   click_on('New Email')
   fill_in("Subject", with: subject)
   fill_in("Message", with: message)
   click_on('Create Email')
   expect(page).to have_content("Email was successfully created.")
+  visit '/emails'
   
 end
 
@@ -55,6 +56,10 @@ When(/^I go to the "([^"]*)" page$/) do |page1|
 end
 
 Then(/^I can see a list with the subjects "([^"]*)" and "([^"]*)"$/) do |subject1, subject2|
+  
+end
+Then(/^I can see a list with the subjects "([^"]*)" and "([^"]*)" at the "([^"]*)" page$/) do |subject1, subject2, page1|
+  visit '/' + page1
   expect(page).to have_content(subject1)
   expect(page).to have_content(subject2)
 end

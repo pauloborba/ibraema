@@ -58,20 +58,19 @@ Then I can see an error message about the message.
 
 @gui @broadcast @broadcast8
 Scenario: Emails sent (GUI)
-Given the email with subject "Obrigado por lutar contra o analfabetismo" and message "Obrigado" was sent to users
-And the email with subject "Novas atividade realizadas" and message "Hoje realizamos uma nova atividade" was sent to users
-When I go to the "emails" page
-Then I can see a list with the subjects "Obrigado por lutar contra o analfabetismo" and "Novas atividade realizadas"
+Given I am at the "emails" page 
+And I see the email with subject "Obrigado por lutar contra o analfabetismo" and message "Obrigado" was sent to users
+When I select "New Email"
+And I fill the field "Subject" with "Novas atividade realizadas"
+And I fill the field "Message" with the text "Nova noticia"
+And I select "Create Email"
+Then I can see a successful message
+And I can see a list with the subjects "Obrigado por lutar contra o analfabetismo" and "Novas atividade realizadas" at the "emails" page
 
 @gui @broadcast @broadcast9
 Scenario: Resend email (GUI)
 Given I am at the "emails" page
-And I select "New Email"
-And I fill the field "Subject" with "Obrigado por lutar contra o analfabetismo"
-And I fill the field "Message" with the text "Obrigado"
-And I select "Create Email"
-And I can see a successful message
-And I can see the message with subject "Obrigado por lutar contra o analfabetismo" in the "emails" page.
+And I see the email with subject "Obrigado por lutar contra o analfabetismo" and message "Obrigado" was sent to users
 When I click in the subject "Obrigado por lutar contra o analfabetismo"
 And I select the button "Resend"
 Then I can see a successful message about resent
