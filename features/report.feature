@@ -49,3 +49,29 @@ Scenario: Generate a Coaching Activity report
   And the facilitator with name "Diana" and CPF "16256143493" is registered on the coaching
   When I request the Coaching Activity report from "April 2017"
   Then I recieve a Coaching Activity report with data from "April 2017"
+  
+#GUI Scenarios
+@GUI @report4
+Scenario: Download Coaching Activity report
+  Given I am at the "institutions" page
+  And I select "New Institution"
+  And I fill the field "Name" with "escola do amapa"
+  And I fill the field "Cnpj" with "12093810"
+  And I select "Create Institution"
+  And I am at the "institutions/1/coaching_activities" page
+  And I select "New Coaching Activity"
+  And I select "date_start" "15" from "coaching_activity_date_start_3i", "April" from "coaching_activity_date_start_2i", "2017" from "coaching_activity_date_start_1i"
+  And I select "date_finish" "19" from "coaching_activity_date_finish_3i", "April" from "coaching_activity_date_finish_2i", "2017" from "coaching_activity_date_finish_1i"
+  And I select "Create Coaching activity"
+  And I am at the "institutions/1/coaching_activities/1/facilitators" page
+  And I select "New Facilitator"
+  And I fill the field "Name" with "Joao"
+  And I fill the field "Cpf" with "123.123.123-12"
+  And I select "Create Facilitator"
+  And I select "Back"
+  And I select "Back"
+  And I select "Back"
+  When I select "Create Report"
+  And I select "Download"
+  Then The download starts
+  

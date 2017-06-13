@@ -1,8 +1,7 @@
 require 'time'
 module TimeUtils
     
-    def self.getDate(date)
-        puts date
+    def self.getStartDateNumber(date)
         Time.strptime(date, '%m %Y')
     end
     
@@ -14,7 +13,7 @@ module TimeUtils
         Time.strptime(date, '%B %Y').next_month - 1
     end
     
-    def self.getEndDate2(date)
+    def self.getEndDateNumber(date)
         Time.strptime(date, '%m %Y').next_month - 1
     end
     

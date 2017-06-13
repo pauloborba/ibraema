@@ -51,7 +51,7 @@ module Report
     Prawn::Document.generate('public/' + name + '.pdf') do 
       list.each do |institution|
       text 'CNPJ: ' + institution.cnpj.to_s + ' Nome: ' + institution.name.to_s
-      coaching_activities = institution.coaching_activities.select{ |coaching_activity| (TimeUtils.getStartDate(date) >= coaching_activity.date_start && TimeUtils.getEndDate(date) <= coaching_activity.date_finish) }
+      coaching_activities = institution.coaching_activities.select{ |coaching_activity| (TimeUtils.getStartDateNumber(date) >= coaching_activity.date_start && TimeUtils.getEndDateNumber(date) <= coaching_activity.date_finish) }
       coaching_activities.each do |coaching_activity|
         text 'Data: ' + coaching_activity.date_start + ' - ' + coaching_activity.date_finish 
           coaching_activity.facilitators.each do |facilitator|
