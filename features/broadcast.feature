@@ -74,3 +74,4 @@ And I see the email with subject "Obrigado por lutar contra o analfabetismo" and
 When I click in the subject "Obrigado por lutar contra o analfabetismo"
 And I select the button "Resend"
 Then I can see a successful message about resent
+

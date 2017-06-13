@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :articles
-  resources :emails
-  resources :articles
+  resources :institutions do
+    resources :coaching_activities do
+      resources :facilitators
+    end
+  end
   resources :companies
   resources :people
   resources :users
