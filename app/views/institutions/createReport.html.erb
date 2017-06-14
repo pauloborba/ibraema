@@ -1,0 +1,10 @@
+<%= form_tag(institutions_downloadReport_path) do %>
+  <div class="field">
+    <%= label :date, "Data" %>
+    <%= datetime_select :report, :date%>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Download" %>
+  </div>
+<% end %>
