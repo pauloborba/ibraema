@@ -47,11 +47,11 @@ Scenario: Generate a Coaching Activity report
   And the facilitator with name "Roberto" and CPF "85481996448" is registered on the coaching
   And the facilitator with name "Milton" and CPF "84786467790" is registered on the coaching
   And the facilitator with name "Diana" and CPF "16256143493" is registered on the coaching
-  When I request the Coaching Activity report from "April 2017"
+  When I request the Coaching Activity report from "4 2017"
   Then I recieve a Coaching Activity report with data from "April 2017"
   
 #GUI Scenarios
-@GUI @report4
+@GUI @report4
 Scenario: Download Coaching Activity report
   Given I am at the "institutions" page
   And I select "New Institution"

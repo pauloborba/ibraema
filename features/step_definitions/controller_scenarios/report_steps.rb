@@ -82,7 +82,7 @@ Then(/^I recieve a Coaching Activity report with data from "([^"]*)"$/) do |date
   c = 0
   @systemCoachings.each do |institution|
     expect(institution.cnpj.to_s).to eq(pdfCoaching[c].to_s)
-    coaching_activities = institution.coaching_activities.select{ |coaching_activity| (TimeUtils.getStartDateNumber(date) >= coaching_activity.date_start && TimeUtils.getEndDateNumber(date) <= coaching_activity.date_finish) }
+    coaching_activities = institution.coaching_activities.select{ |coaching_activity| (TimeUtils.getStartDate(date) >= coaching_activity.date_start && TimeUtils.getEndDate(date) <= coaching_activity.date_finish) }
     coaching_activities.each do |facilitator|
       expect(facilitator.cpf.to_s).to eq(pdfCoaching[c].to_s)
       c = c + 1
